@@ -17,11 +17,18 @@ a {
 a:hover {
     text-decoration: none;
     cursor: pointer;
+    color: var(--text-color-light);
 }
 
 .text a {
     text-decoration: none;
     color: #5CBC9E;
+}
+
+nav a:hover {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
 }
 
 .text a:hover {
@@ -39,7 +46,7 @@ img {
 
 /* Root / Variáveis */
 
- :root {
+:root {
     --header-height: 4.5rem;
     /* colors */
     --hue: 159;

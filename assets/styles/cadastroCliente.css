@@ -14,6 +14,23 @@ a {
     text-decoration: none;
 }
 
+a:hover {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.text a {
+    text-decoration: none;
+    color: #5CBC9E;
+}
+
+.text a:hover {
+    color: #3d9378;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
 img {
     width: 100%;
     height: auto;
@@ -106,6 +123,7 @@ body {
 
 .section .title {
     margin-bottom: 1rem;
+    padding-top: 140px;
 }
 
 .section .subtitle {
@@ -537,6 +555,10 @@ footer .social a:hover {
     transform: translateY(0);
 }
 
+form {
+    width: 450px;
+}
+
 
 /* Responsividade-Breakpoints */
 
@@ -562,6 +584,7 @@ footer .social a:hover {
     }
     .button {
         height: 3.125rem;
+        float: right;
     }
     /* Navegação */
     nav .menu {
@@ -593,6 +616,7 @@ footer .social a:hover {
         grid-auto-flow: column;
         justify-content: space-between;
         margin: 0 auto;
+        margin-top: -140px;
     }
     #home .image {
         order: 1;

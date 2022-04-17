@@ -1,0 +1,41 @@
+.text a {
+    text-decoration: none;
+    color: #5CBC9E;
+}
+
+a:hover {
+    text-decoration: none;
+    cursor: pointer;
+    color: var(--text-color-light);
+}
+
+nav a:hover {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+.text a:hover {
+    color: #3d9378;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.section .title {
+    padding-top: 140px;
+}
+
+form {
+    width: 450px;
+}
+
+@media (min-width: 1200px) {
+    .button {
+        float: right;
+    }
+    /* Home */
+    #home .container {
+        margin-top: -140px;
+    }
+}

@@ -29,7 +29,7 @@ nav a:hover {
 .link {
     color: #5CBC9E;
     text-decoration: none;
-    /* alinhar no meio */
+    line-height: 300%;
 }
 
 .link:hover {
@@ -38,12 +38,30 @@ nav a:hover {
     font-weight: bold;
 }
 
-div .form-row {
-    padding-left: 300px;
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-@media (min-width: 1200px) {
-    .button {
-        float: right;
-    }
+.access {
+    padding-left: 23%;
+}
+
+.button {
+    width: 100%;
+    padding-left: 45%;
+}
+
+form {
+    border: #3d9378 solid 1px;
+    border-radius: 3%;
+    padding: 10px;
+}
+
+.line {
+    border-top: #3d9378 solid 1px;
+    width: 102.5%;
+    /* margin-top: 10px; */
+    padding-top: 5px;
 }

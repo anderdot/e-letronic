@@ -32,72 +32,6 @@
     <meta name="msapplication-TileColor" content="#69B99D">
     <meta name="theme-color" content="#69B99D">
 
-    <!-- API de Busca de CEP -->
-    <script>
-    
-        function limpa_formulário_cep() {
-                //Limpa valores do formulário de cep.
-                document.getElementById('rua').value=("");
-                document.getElementById('cidade').value=("");
-                document.getElementById('uf').value=("");
-        }
-    
-        function meu_callback(conteudo) {
-            if (!("erro" in conteudo)) {
-                //Atualiza os campos com os valores.
-                document.getElementById('rua').value=(conteudo.logradouro);
-                document.getElementById('cidade').value=(conteudo.localidade);
-                document.getElementById('uf').value=(conteudo.uf);
-            } //end if.
-            else {
-                //CEP não Encontrado.
-                limpa_formulário_cep();
-                alert("CEP não encontrado.");
-            }
-        }
-            
-        function pesquisacep(valor) {
-    
-            //Nova variável "cep" somente com dígitos.
-            var cep = valor.replace(/\D/g, '');
-    
-            //Verifica se campo cep possui valor informado.
-            if (cep != "") {
-    
-                //Expressão regular para validar o CEP.
-                var validacep = /^[0-9]{8}$/;
-    
-                //Valida o formato do CEP.
-                if(validacep.test(cep)) {
-    
-                    //Preenche os campos com "..." enquanto consulta webservice.
-                    document.getElementById('rua').value="procurando...";
-                    document.getElementById('cidade').value="procurando...";
-                    document.getElementById('uf').value="procurando...";
-    
-                    //Cria um elemento javascript.
-                    var script = document.createElement('script');
-    
-                    //Sincroniza com o callback.
-                    script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
-    
-                    //Insere script no documento e carrega o conteúdo.
-                    document.body.appendChild(script);
-    
-                } //end if.
-                else {
-                    //cep é inválido.
-                    limpa_formulário_cep();
-                    alert("Formato de CEP inválido.");
-                }
-            } //end if.
-            else {
-                //cep sem valor, limpa formulário.
-                limpa_formulário_cep();
-            }
-        };
-    
-        </script>
 
 </head>
 
@@ -146,7 +80,7 @@
                     <div class="form-row">
                         <div class="form-group col-md-12">
                             <label for="inputEmail4">CNPJ</label>
-                            <input type="text" class="form-control" id="inputName" placeholder="36.221.010/0001-16">
+                            <input oninput="mascaraCnpj(this)"type="text" class="form-control" id="inputName" placeholder="36.221.010/0001-16">
                         </div>
                     </div>
                     <div class="form-row">
@@ -225,5 +159,7 @@
     <script src="main.js"></script>
 
 </body>
+
+<script src="../scripts/cadastro-empresa.js"></script>
 
 </html>

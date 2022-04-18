@@ -32,7 +32,6 @@
     <meta name="msapplication-TileColor" content="#69B99D">
     <meta name="theme-color" content="#69B99D">
 
-
     <!-- API de Busca de CEP -->
     <script>
     
@@ -100,7 +99,6 @@
     
         </script>
 
-
 </head>
 
 <body>
@@ -128,15 +126,11 @@
                     <p>Caso você seja uma empresa comprometida com isso e queira se juntar a causa, considere <a href="index.html">se tornar um aliado</a>.</p>
                 </div>
 
-                <form>
+                <form method="get" action=".">
                     <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="inputEmail4">Nome</label>
-                            <input type="text" class="form-control" id="inputName" placeholder="Celso">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="inputPassword4">Sobrenome</label>
-                            <input type="text" class="form-control" id="inputName2" placeholder="Portioli">
+                        <div class="form-group col-md-12">
+                            <label for="inputEmail4">Razão Social</label>
+                            <input type="text" class="form-control" id="inputName" placeholder="Talita Maria LTDA">
                         </div>
                     </div>
                     <div class="form-row">
@@ -150,29 +144,26 @@
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="inputEmail4">CPF</label>
-                            <input type="text" class="form-control" id="inputName" placeholder="036.221.010-16">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="inputEmail4">Data Nascimento</label>
-                            <input type="text" class="form-control" id="inputName" placeholder="12/04/1961">
+                        <div class="form-group col-md-12">
+                            <label for="inputEmail4">CNPJ</label>
+                            <input type="text" class="form-control" id="inputName" placeholder="36.221.010/0001-16">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-4">
-                            <label for="typeNumber">CEP</label>
+
+                            <label>CEP</label>
                             <input name="cep" type="text" class="form-control" id="cep" onblur="pesquisacep(this.value);" /></label><br />
                         </div>
                         <div class="form-group col-md-8">
-                            <label for="inputAddress">Endereço</label>
+                            <label>Endereço</label>
                             <input name="rua" type="text" class="form-control" id="rua" /></label><br />
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label for="typeNumber">Número</label>
-                            <input type="number" class="form-control" id="typeNumber" placeholder="3301">
+                            <input type="text" class="form-control" id="typeNumber" placeholder="3301">
                         </div>
                         <div class="form-group col-md-8">
                             <label for="inputAddress2">Complemento</label>
@@ -181,7 +172,7 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="inputCity">Cidade</label>
+                            <label>Cidade</label>
                             <input name="cidade" type="text" class="form-control" id="cidade" /></label><br />
                         </div>
                         <div class="form-group col-md-6">

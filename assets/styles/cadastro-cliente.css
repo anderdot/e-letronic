@@ -1,12 +1,12 @@
+.text a {
+    text-decoration: none;
+    color: #5CBC9E;
+}
+
 a:hover {
     text-decoration: none;
     cursor: pointer;
     color: var(--text-color-light);
-}
-
-.text a {
-    text-decoration: none;
-    color: #5CBC9E;
 }
 
 nav a:hover {

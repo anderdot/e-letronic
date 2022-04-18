@@ -1,0 +1,49 @@
+.text a {
+    text-decoration: none;
+    color: #5CBC9E;
+}
+
+a:hover {
+    text-decoration: none;
+    cursor: pointer;
+    color: var(--text-color-light);
+}
+
+nav a:hover {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+.text a:hover {
+    color: #3d9378;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.image {
+    width: 170%;
+}
+
+.link {
+    color: #5CBC9E;
+    text-decoration: none;
+    /* alinhar no meio */
+}
+
+.link:hover {
+    color: #3d9378;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+div .form-row {
+    padding-left: 300px;
+}
+
+@media (min-width: 1200px) {
+    .button {
+        float: right;
+    }
+}

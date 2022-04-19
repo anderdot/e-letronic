@@ -46,6 +46,9 @@ nav a:hover {
 
 .access {
     padding-left: 23%;
+    font: 700 1.875rem var(--title-font);
+    color: var(--title-color);
+    -webkit-font-smoothing: auto;
 }
 
 .button {
@@ -64,4 +67,8 @@ form {
     width: 102.5%;
     /* margin-top: 10px; */
     padding-top: 5px;
+}
+
+.section .title {
+    padding-top: 80px;
 }

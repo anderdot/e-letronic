@@ -32,14 +32,13 @@
     <meta name="msapplication-TileColor" content="#69B99D">
     <meta name="theme-color" content="#69B99D">
 
-
 </head>
 
 <body>
     <!-- Header -->
     <header id="header">
         <nav class="container">
-            <a class="logo" href="#">e-<span>Letronic</span></a>
+            <a class="logo" href="index.html">e-<span>Letronic</span></a>
             <div class="menu">
                 <ul class="grid">
                     <li><a class="title" href="index.html">Início</a></li>
@@ -57,7 +56,7 @@
                 <div class="text">
                     <h2 class="title">Vamos ajudar o mundo juntos?</h2>
                     <p>Cadastre-se a seguir para se livrar dos seus eletrônicos antigos e assim, ajude o mundo.</p>
-                    <p>Caso você seja uma empresa comprometida com isso e queira se juntar a causa, considere <a href="index.html">se tornar um aliado</a>.</p>
+                    <p>Caso você seja uma empresa comprometida com isso e queira se juntar a causa, considere <a href="cadastro-empresa.html">se tornar um aliado</a>.</p>
                 </div>
 
                 <form method="get" action=".">
@@ -78,20 +77,24 @@
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group col-md-12">
+                        <div class="form-group col-md-6">
                             <label for="inputEmail4">CNPJ</label>
-                            <input oninput="mascaraCnpj(this)"type="text" class="form-control" id="inputName" placeholder="36.221.010/0001-16">
+                            <input oninput="mascaraCnpj(this)" type="text" class="form-control" id="inputName" placeholder="36.221.010/0001-16">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputEmail4">I.E</label>
+                            <input type="text" class="form-control" id="inputName" placeholder="528.645.038.635">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-4">
 
                             <label>CEP</label>
-                            <input name="cep" type="text" class="form-control" id="cep" onblur="pesquisacep(this.value);" /></label><br />
+                            <input name="cep" type="text" class="form-control" id="cep" placeholder="05318-925" onblur="pesquisacep(this.value);" /></label>
                         </div>
                         <div class="form-group col-md-8">
                             <label>Endereço</label>
-                            <input name="rua" type="text" class="form-control" id="rua" /></label><br />
+                            <input name="rua" type="text" class="form-control" placeholder="Bandeira Paulista" id="rua" /></label>
                         </div>
                     </div>
                     <div class="form-row">
@@ -107,12 +110,12 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label>Cidade</label>
-                            <input name="cidade" type="text" class="form-control" id="cidade" /></label><br />
+                            <input name="cidade" type="text" class="form-control" placeholder="São Paulo" id="cidade" /></label>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputState">Estado</label>
-                            <input name="uf" type="text" class="form-control" id="uf" /></label><br />
-                        </select>
+                            <input name="uf" type="text" class="form-control" placeholder="SP" id="uf" /></label>
+                            </select>
                         </div>
                     </div>
                     <div class="form-row">
@@ -128,7 +131,7 @@
                             <input type="password" class="form-control" id="inputPassword4" placeholder="Senha">
                         </div>
                     </div>
-                    <a href="#" target="_blank" class="button"><i class=""></i>Cadastrar-se</a>
+                    <a href="#" target="_self" class="button"><i class=""></i>Cadastrar-se</a>
                 </form>
             </div>
         </section>

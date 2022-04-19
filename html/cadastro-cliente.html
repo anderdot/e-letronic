@@ -32,7 +32,7 @@
     <meta name="msapplication-TileColor" content="#69B99D">
     <meta name="theme-color" content="#69B99D">
 
-    
+
 </head>
 
 <body>
@@ -57,7 +57,7 @@
                 <div class="text">
                     <h2 class="title">Vamos ajudar o mundo juntos?</h2>
                     <p>Cadastre-se a seguir para se livrar dos seus eletrônicos antigos e assim, ajude o mundo.</p>
-                    <p>Caso você seja uma empresa comprometida com isso e queira se juntar a causa, considere <a href="index.html">se tornar um aliado</a>.</p>
+                    <p>Caso você seja uma empresa comprometida com isso e queira se juntar a causa, considere <a href="cadastro-empresa.html">se tornar um aliado</a>.</p>
                 </div>
 
                 <form>
@@ -84,7 +84,7 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="inputEmail4">CPF</label>
-                            <input oninput="mascaraCpf(this)" type="text" class="form-control" id="inputName">
+                            <input oninput="mascaraCpf(this)" type="text" class="form-control" placeholder="168.209.468-22" id="inputName">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputEmail4">Data Nascimento</label>
@@ -94,17 +94,17 @@
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label for="typeNumber">CEP</label>
-                            <input name="cep" type="text" class="form-control" id="cep" onblur="pesquisacep(this.value);" /></label><br />
+                            <input name="cep" type="text" class="form-control" id="cep" placeholder="05318-925" onblur="pesquisacep(this.value);" /></label>
                         </div>
                         <div class="form-group col-md-8">
                             <label for="inputAddress">Endereço</label>
-                            <input name="rua" type="text" class="form-control" id="rua" /></label><br />
+                            <input name="rua" type="text" class="form-control" placeholder="Rua dos alfeneiros" id="rua" /></label>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label for="typeNumber">Número</label>
-                            <input type="number" class="form-control" id="typeNumber" placeholder="3301">
+                            <input type="number" class="form-control" id="typeNumber" placeholder="04">
                         </div>
                         <div class="form-group col-md-8">
                             <label for="inputAddress2">Complemento</label>
@@ -113,13 +113,13 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="inputCity">Cidade</label>
-                            <input name="cidade" type="text" class="form-control" id="cidade" /></label><br />
+                            <label for="inputCity">Cidade</label>.
+                            <input name="cidade" type="text" class="form-control" id="cidade" placeholder="São Paulo" /></label>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputState">Estado</label>
-                            <input name="uf" type="text" class="form-control" id="uf" /></label><br />
-                        </select>
+                            <input name="uf" type="text" class="form-control" id="uf" placeholder="SP" /></label>
+                            </select>
                         </div>
                     </div>
                     <div class="form-row">
@@ -135,7 +135,7 @@
                             <input type="password" class="form-control" id="inputPassword4" placeholder="Senha">
                         </div>
                     </div>
-                    <a href="#" target="_blank" class="button"><i class=""></i>Cadastrar-se</a>
+                    <a href="#" target="_self" class="button"><i class=""></i>Cadastrar-se</a>
                 </form>
             </div>
         </section>

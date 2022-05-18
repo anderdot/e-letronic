@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="../assets/styles/style.css">
     <link rel="stylesheet" href="../assets/styles/cadastro-cliente.css">
 
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.pt-BR.min.js"></script>
 
     <!-- Icons (icomoon.io) -->
@@ -62,15 +63,15 @@
 
                 <form>
                     <div class="form-row">
-                        <div class="form-group col-md-12">
-                            <label for="inputEmail4">Tipo</label>
-                            <select>
-                                <option>Select...</option>
-                                <option>Tipo 1</option>
-                                <option>Tipo 2</option>
-                                <option>Tipo 3</option>
-                                <option>Tipo 4</option>
-                            </select>
+                        <div class="form-group col-md-7">
+                            <div class="dropdown">
+                                <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  Dropdown trigger
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dLabel">
+                                    ...
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="form-row">

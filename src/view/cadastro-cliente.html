@@ -11,15 +11,15 @@
     <meta name="description" content="Reciclagem de lixo eletrônico">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="../libs/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="../../libs/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="../assets/styles/style.css">
-    <link rel="stylesheet" href="../assets/styles/cadastro-cliente.css">
+    <link rel="stylesheet" href="../../assets/styles/style.css">
+    <link rel="stylesheet" href="../../assets/styles/cadastro-cliente.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.pt-BR.min.js"></script>
 
     <!-- Icons (icomoon.io) -->
-    <link rel="stylesheet" href="../assets/fonts/style.css">
+    <link rel="stylesheet" href="../../assets/fonts/style.css">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,10 +27,11 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap">
 
     <!-- Favicons -->
-    <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../../assets/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../../assets/favicon.ico" type="image/x-icon">
     <meta name="msapplication-TileColor" content="#69B99D">
     <meta name="theme-color" content="#69B99D">
+
 
 </head>
 
@@ -38,7 +39,7 @@
     <!-- Header -->
     <header id="header">
         <nav class="container">
-            <a class="logo" href="index.html">e-<span>Letronic</span></a>
+            <a class="logo" href="#">e-<span>Letronic</span></a>
             <div class="menu">
                 <ul class="grid">
                     <li><a class="title" href="index.html">Início</a></li>
@@ -46,7 +47,7 @@
             </div>
             <div class="toggle icon-menu"></div>
             <div class="toggle icon-close"></div>
-        </nav>
+        </nav>154836995545
     </header>
 
     <main>
@@ -59,11 +60,15 @@
                     <p>Caso você seja uma empresa comprometida com isso e queira se juntar a causa, considere <a href="cadastro-empresa.html">se tornar um aliado</a>.</p>
                 </div>
 
-                <form method="get" action=".">
+                <form>
                     <div class="form-row">
-                        <div class="form-group col-md-12">
-                            <label for="inputEmail4">Razão Social</label>
-                            <input type="text" class="form-control" id="inputName" placeholder="Talita Maria LTDA">
+                        <div class="form-group col-md-6">
+                            <label for="inputEmail4">Nome</label>
+                            <input type="text" class="form-control" id="inputName" placeholder="Celso">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputPassword4">Sobrenome</label>
+                            <input type="text" class="form-control" id="inputName2" placeholder="Portioli">
                         </div>
                     </div>
                     <div class="form-row">
@@ -73,34 +78,33 @@
                         </div>
                         <div class="form-group col-md-5">
                             <label for="typeNumber">Telefone</label>
-                            <input type="text" class="form-control" id="typeNumber" placeholder="(11) 95487-3614">
+                            <input name="phone" onkeypress="mascaraTelefone(this, meuCelular);" onblur="mascaraTelefone(this, meuCelular);" type="text" class="form-control" id="phone" placeholder="(11) 95487-3614">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="inputEmail4">CNPJ</label>
-                            <input oninput="mascaraCnpj(this)" type="text" class="form-control" id="inputName" placeholder="36.221.010/0001-16">
+                            <label for="inputEmail4">CPF</label>
+                            <input oninput="mascaraCpf(this)" type="text" class="form-control" placeholder="168.209.468-22" id="inputName">
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="inputEmail4">I.E</label>
-                            <input type="text" class="form-control" id="inputName" placeholder="528.645.038.635">
+                            <label for="inputEmail4">Data Nascimento</label>
+                            <input type="text" class="form-control" id="inputName" placeholder="12/04/1961">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-4">
-
-                            <label>CEP</label>
+                            <label for="typeNumber">CEP</label>
                             <input name="cep" type="text" class="form-control" id="cep" placeholder="05318-925" onblur="pesquisacep(this.value);" />
                         </div>
                         <div class="form-group col-md-8">
-                            <label>Endereço</label>
-                            <input name="rua" type="text" class="form-control" placeholder="Bandeira Paulista" id="rua" />
+                            <label for="inputAddress">Endereço</label>
+                            <input name="rua" type="text" class="form-control" placeholder="Rua dos alfeneiros" id="rua" />
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label for="typeNumber">Número</label>
-                            <input type="text" class="form-control" id="typeNumber" placeholder="3301">
+                            <input type="number" class="form-control" id="typeNumber" placeholder="04">
                         </div>
                         <div class="form-group col-md-8">
                             <label for="inputAddress2">Complemento</label>
@@ -109,12 +113,12 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label>Cidade</label>
-                            <input name="cidade" type="text" class="form-control" placeholder="São Paulo" id="cidade" />
+                            <label for="inputCity">Cidade</label>.
+                            <input name="cidade" type="text" class="form-control" id="cidade" placeholder="São Paulo" />
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputState">Estado</label>
-                            <input name="uf" type="text" class="form-control" placeholder="SP" id="uf" />
+                            <input name="uf" type="text" class="form-control" id="uf" placeholder="SP" />
                             </select>
                         </div>
                     </div>
@@ -155,14 +159,14 @@
     <a href="#home" class="back-to-top"><i class="icon-arrow-up"></i></a>
 
     <!-- Swiper / Scroll -->
-    <script src="libs/swiper-bundle.min.js"></script>
+    <script src="../../libs/swiper-bundle.min.js"></script>
     <!-- Scroll Reveal -->
-    <script src="libs/scrollreveal.min.js"></script>
+    <script src="../../libs/scrollreveal.min.js"></script>
     <!-- Scripts -->
     <script src="main.js"></script>
 
 </body>
 
-<script src="../scripts/cadastro-empresa.js"></script>
+<script src="../../scripts/cadastro-cliente.js"></script>
 
 </html>

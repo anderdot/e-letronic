@@ -9,7 +9,7 @@ $dataNascimento = $_POST['dataNascimento'];
 $cep = $_POST['cep'];
 $endereco = $_POST['endereco'];
 $numero = $_POST['numero'];
-$complento = $_POST['complento'];
+$complemento = $_POST['complemento'];
 $cidade = $_POST['cidade'];
 $estado = $_POST['estado'];
 $senha = $_POST['senha'];
@@ -19,7 +19,7 @@ $confirmaSenha = $_POST['confirmaSenha'];
 require_once '../services/connection.php';
 
 // inserir os campos de endereço
-$sql = "INSERT INTO `endereco` (`cep`, `endereco`, `numero`, `complemento`, `cidade`, `estado`) VALUES (?, ?, ?, ?, ?, ?, ?)";
+$sql = "INSERT INTO `endereco` (`cep`, `endereco`, `numero`, `complemento`, `cidade`, `estado`) VALUES (?, ?, ?, ?, ?, ?)";
 $stmt = $conn->prepare($sql);
 $stmt->bindParam(1, $cep);
 $stmt->bindParam(2, $endereco);
@@ -49,5 +49,5 @@ $stmt->bindParam(7, $codLogin);
 $stmt->execute();
 $codCliente = $conn->lastInsertId(); // retorna o id do cliente inserido
 
-echo "Cliente inserido com sucesso! Codigo do cliente: " + $codCliente;
+echo "Cliente inserido com sucesso! Codigo do cliente: " . $codCliente;
 ?>

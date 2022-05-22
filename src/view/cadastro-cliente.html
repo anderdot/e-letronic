@@ -64,80 +64,79 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="inputEmail4">Nome</label>
-                            <input type="text" name="nome" class="form-control" id="inputName" placeholder="Celso">
+                            <input type="text" name="nome" class="form-control" id="inputName" placeholder="Celso" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputPassword4">Sobrenome</label>
-                            <input type="text" name="sobrenome" class="form-control" id="inputName2" placeholder="Portioli">
+                            <input type="text" name="sobrenome" class="form-control" id="inputName2" placeholder="Portioli" required>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-7">
                             <label for="inputEmail4">Email</label>
-                            <input type="email" name="email" class="form-control" id="inputEmail4" placeholder="nome@exemplo.com">
+                            <input type="email" name="email" class="form-control" id="inputEmail4" placeholder="nome@exemplo.com" required>
                         </div>
                         <div class="form-group col-md-5">
                             <label for="typeNumber">Telefone</label>
-                            <input type="text" name="telefone" onkeypress="mascaraTelefone(this, meuCelular);" onblur="mascaraTelefone(this, meuCelular);" class="form-control" id="phone" placeholder="(11) 95487-3614">
+                            <input type="text" name="telefone" onkeypress="mascaraTelefone(this, meuCelular);" onblur="mascaraTelefone(this, meuCelular);" class="form-control" id="phone" placeholder="(11) 95487-3614" required>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="inputEmail4">CPF</label>
-                            <input type="text" name="cpf" oninput="mascaraCpf(this)" class="form-control" placeholder="168.209.468-22" id="inputName">
+                            <input type="text" name="cpf" oninput="mascaraCpf(this)" class="form-control" placeholder="168.209.468-22" id="inputName" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputEmail4">Data Nascimento</label>
-                            <input type="text" name="dataNascimento" class="form-control" id="inputName" placeholder="12/04/1961">
+                            <input type="text" name="dataNascimento" class="form-control" id="inputName" placeholder="12/04/1961" required>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label for="typeNumber">CEP</label>
-                            <input type="text" name="cep" class="form-control" id="cep" placeholder="05318-925" onblur="pesquisacep(this.value);" />
+                            <input type="text" name="cep" class="form-control" id="cep" placeholder="05318-925" onblur="pesquisacep(this.value);" required>
                         </div>
                         <div class="form-group col-md-8">
                             <label for="inputAddress">Endereço</label>
-                            <input type="text" name="endereco" class="form-control" placeholder="Rua dos alfeneiros" id="rua" />
+                            <input type="text" name="endereco" class="form-control" placeholder="Rua dos alfeneiros" id="rua" required>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label for="typeNumber">Número</label>
-                            <input type="number" name="numero" class="form-control" id="typeNumber" placeholder="04">
+                            <input type="number" name="numero" class="form-control" id="typeNumber" placeholder="04" required>
                         </div>
                         <div class="form-group col-md-8">
                             <label for="inputAddress2">Complemento</label>
-                            <input type="text" name="complemento" class="form-control" id="inputAddress2" placeholder="Bloco 1">
+                            <input type="text" name="complemento" class="form-control" id="inputAddress2" placeholder="Bloco 1" required>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="inputCity">Cidade</label>.
-                            <input type="text" name="cidade" class="form-control" id="cidade" placeholder="São Paulo" />
+                            <input type="text" name="cidade" class="form-control" id="cidade" placeholder="São Paulo" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputState">Estado</label>
-                            <input type="text" name="estado" class="form-control" id="uf" placeholder="SP" />
+                            <input type="text" name="estado" class="form-control" id="uf" placeholder="SP" required>
                             </select>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="inputPassword4">Senha</label>
-                            <input type="password" name="senha" class="form-control" id="inputPassword4" placeholder="Senha">
+                            <input type="password" name="senha" class="form-control" id="inputPassword4" placeholder="Senha" required>
                             <small id="passwordHelpBlock" class="form-text text-muted">
                                 Senha de 8-16 caracteres.
                             </small>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputPassword4">Confirmar Senha</label>
-                            <input type="password" name="confirmaSenha" class="form-control" id="inputPassword4" placeholder="Senha">
+                            <input type="password" name="confirmarSenha" class="form-control" id="inputPassword4" placeholder="Senha" required>
                         </div>
                     </div>
                     <!-- botão de submit -->
-                    <button type="submit" class="btn btn-primary">Cadastrar</button>
-                    <!-- <a href="#" type="submit" target="_self" class="button"><i class=""></i>Cadastrar-se</a> -->
+                    <button type="submit" class="btn btn-success button">Cadastrar-se</button>
                 </form>
             </div>
         </section>

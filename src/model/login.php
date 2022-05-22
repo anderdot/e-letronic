@@ -53,13 +53,20 @@ class login {
         // abrir conexão em services connection.php
         require_once '../services/connection.php';
         // inserir no banco usando prepared statement
-        $sql = "INSERT INTO login (email, senha) VALUES (:email, :senha)";
+        // $sql = "INSERT INTO login (email, senha) VALUES (:email, :senha)";
+        // $stmt = $conn->prepare($sql);
+        // $stmt->bindParam(":email", $this->email);
+        // $stmt->bindParam(":senha", $this->senha);
+        // print_r($stmt);
+        // $stmt->execute();
+        // $this->setCodLogin($conn->lastInsertId());
+        // print_r($this->codLogin);
+
+        $sql = "INSERT INTO `login` (`email`, `senha`) VALUES (?, ?)";
         $stmt = $conn->prepare($sql);
-        $stmt->bindParam(":email", $this->email);
-        $stmt->bindParam(":senha", $this->senha);
-        print_r($stmt);
+        $stmt->bindParam(1, $email);
+        $stmt->bindParam(2, $senha);
         $stmt->execute();
         $this->setCodLogin($conn->lastInsertId());
-        print_r($this->codLogin);
     }
 }

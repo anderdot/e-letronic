@@ -6,7 +6,9 @@ $dbname = "eletronic";
 
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    return $conn;
+    echo "Connected successfully";
+    // return $conn;
 } catch (PDOException $e) {
+    echo "Connection failed: " . $e->getMessage();
     throw new PDOException($e);
 }

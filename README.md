@@ -6,6 +6,7 @@
 - [X] Tela de login
 - [] Tela de cadastro de produtos
 - [] Tela de visualizar produtos
+- [] Tela de perfil
 
 ## Back-end
 - [] Crud de clientes
@@ -14,8 +15,11 @@
 - [] Login com session nas paginas
 
 ## Banco
-- [] Criar banco de dados
-- [] Criar tabelas
+- [X] Criar banco de dados
+- [X] Criar tabela de endereços
+- [X] Criar tabela de Logins
+- [X] Criar tabela de clientes
+- [] Criar tabela de empresas
+- [] Criar tabela de produtos
+- [] Criar tabela de status
 - [] Criar relacionamentos
-- [] Fazer as inserções
-- [] Processos funcionando

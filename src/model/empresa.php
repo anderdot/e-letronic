@@ -3,6 +3,7 @@ require_once 'endereco.php';
 class empresa extends endereco {
     private $codEmpresa;
     private $razaoSocial;
+    private $telefone;
     private $cnpj;
     private $ie;
 
@@ -20,6 +21,14 @@ class empresa extends endereco {
 
     public function setRazaoSocial($razaoSocial) {
         $this->razaoSocial = $razaoSocial;
+    }
+
+    public function getTelefone() {
+        return $this->telefone;
+    }
+
+    public function setTelefone($telefone) {
+        $this->telefone = $telefone;
     }
 
     public function getCnpj() {
@@ -42,6 +51,7 @@ class empresa extends endereco {
     public function __construct() {
         $this->codEmpresa = 0;
         $this->razaoSocial = "";
+        $this->telefone = "";
         $this->cnpj = "";
         $this->ie = "";
     }
@@ -49,9 +59,11 @@ class empresa extends endereco {
     public function cadastrarEmpresa() {
         // abrir conexão em services connection.php
         require '../services/connection.php';
-        $sql = "INSERT INTO empresa (razaoSocial, cnpj, ie, codEndereco, codLogin) VALUES (:razaoSocial, :cnpj, :ie, :codEndereco, :codLogin)";
+        $sql = "INSERT INTO empresa (razaoSocial, telefone, cnpj, ie, codEndereco, codLogin) 
+                             VALUES (:razaoSocial, :telefone, :cnpj, :ie, :codEndereco, :codLogin)";
         $stmt = $conn->prepare($sql);
         $stmt->bindValue(':razaoSocial', $this->razaoSocial);
+        $stmt->bindValue(':telefone', $this->telefone);
         $stmt->bindValue(':cnpj', $this->cnpj);
         $stmt->bindValue(':ie', $this->ie);
         $stmt->bindValue(':codEndereco', $this->codEndereco);
@@ -99,7 +111,8 @@ class empresa extends endereco {
     public function alterarEmpresa() {
         // abrir conexão em services connection.php
         require '../services/connection.php';
-        $sql = "UPDATE empresa SET razaoSocial = :razaoSocial, cnpj = :cnpj, ie = :ie, codEndereco = :codEndereco, codLogin = :codLogin WHERE codEmpresa = :codEmpresa";
+        $sql = "UPDATE empresa SET razaoSocial = :razaoSocial, telefone = :telefone, cnpj = :cnpj, ie = :ie, 
+                                   codEndereco = :codEndereco, codLogin = :codLogin WHERE codEmpresa = :codEmpresa";
         $stmt = $conn->prepare($sql);
         $stmt->bindValue(':razaoSocial', $this->razaoSocial);
         $stmt->bindValue(':cnpj', $this->cnpj);

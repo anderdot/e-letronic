@@ -1,5 +1,5 @@
 <?php
-include 'endereco.php';
+require_once 'endereco.php';
 class cliente extends endereco {
     private $codCliente;
     private $nome;
@@ -82,5 +82,68 @@ class cliente extends endereco {
         $stmt->execute();
         $this->setCodCliente($conn->lastInsertId());
         // echo "Cliente cadastrado com sucesso! Código: " . $this->getCodCliente() . "<br>";
+    }
+
+    public function selecionarClientePorCod() {
+        // abrir conexão em services connection.php
+        require '../services/connection.php';
+        $sql = "SELECT * FROM `cliente` AS C
+            INNER JOIN `endereco` AS E
+            ON C.codEndereco = E.codEndereco
+            INNER JOIN `login` AS L
+            ON C.codLogin = L.codLogin 
+            WHERE codCliente = :codCliente";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindValue(":codCliente", $this->codCliente);
+        $stmt->execute();
+
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    public function selecionarClientePorEmailSenha() {
+        // abrir conexão em services connection.php
+        require '../services/connection.php';
+        $sql = "SELECT * FROM `cliente` AS C
+            INNER JOIN `endereco` AS E
+            ON C.codEndereco = E.codEndereco
+            INNER JOIN `login` AS L
+            ON C.codLogin = L.codLogin 
+            WHERE email = :email AND senha = :senha";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindValue(":email", $this->email);
+        $stmt->bindValue(":senha", $this->senha);
+        $stmt->execute();
+
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    public function atualizarCliente() {
+        // abrir conexão em services connection.php
+        require '../services/connection.php';
+        $sql = "UPDATE cliente SET nome = :nome, sobrenome = :sobrenome, dataNascimento = :dataNascimento, cpf = :cpf, telefone = :telefone, 
+                                   codEndereco = :codEndereco, codLogin = :codLogin WHERE codCliente = :codCliente";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(":nome", $this->nome);
+        $stmt->bindParam(":sobrenome", $this->sobrenome);
+        $stmt->bindParam(":dataNascimento", $this->dataNascimento);
+        $stmt->bindParam(":cpf", $this->cpf);
+        $stmt->bindParam(":telefone", $this->telefone);
+        $stmt->bindParam(":codEndereco", $this->codEndereco);
+        $stmt->bindParam(":codLogin", $this->codLogin);
+        $stmt->bindParam(":codCliente", $this->codCliente);
+        $stmt->execute();
+        // echo "Cliente atualizado com sucesso! Código: " . $this->getCodCliente() . "<br>";
+    }
+
+    public function excluirCliente() {
+        // abrir conexão em services connection.php
+        require '../services/connection.php';
+        $sql = "DELETE FROM cliente WHERE codCliente = :codCliente";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(":codCliente", $this->codCliente);
+        $stmt->execute();
+        // echo "Cliente deletado com sucesso! Código: " . $this->getCodCliente() . "<br>";
     }
 }

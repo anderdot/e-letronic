@@ -34,19 +34,6 @@ class login {
         $this->senha = "";
     }
 
-    public function selectEmail() {
-        // abrir conexão em services connection.php
-        require '../services/connection.php';
-
-        $sql = "SELECT email FROM login WHERE email = :email";
-        $stmt = $conn->prepare($sql);
-        $stmt->bindValue(":email", $this->email);
-        $stmt->execute();
-
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $result;
-    }
-
     public function cadastrarlogin() {
         // abrir conexão em services connection.php
         require '../services/connection.php';
@@ -59,5 +46,56 @@ class login {
         $stmt->execute();
         $this->setCodLogin($conn->lastInsertId());
         // echo "Login cadastrado com sucesso! " . $this->getCodLogin() . "<br>";
+    }
+
+    public function selecionarEmail() {
+        // abrir conexão em services connection.php
+        require '../services/connection.php';
+
+        $sql = "SELECT email FROM login WHERE email = :email";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindValue(":email", $this->email);
+        $stmt->execute();
+
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    public function selecionarLoginPorEmailSenha() {
+        // abrir conexão em services connection.php
+        require '../services/connection.php';
+
+        $sql = "SELECT * FROM login WHERE email = :email AND senha = :senha";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindValue(":email", $this->email);
+        $stmt->bindValue(":senha", $this->senha);
+        $stmt->execute();
+
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    public function alterarLogin() {
+        // abrir conexão em services connection.php
+        require '../services/connection.php';
+
+        $sql = "UPDATE login SET email = :email, senha = :senha WHERE codLogin = :codLogin";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(":email", $this->email);
+        $stmt->bindParam(":senha", $this->senha);
+        $stmt->bindParam(":codLogin", $this->codLogin);
+        $stmt->execute();
+        // echo "Login alterado com sucesso! " . $this->getCodLogin() . "<br>";
+    }
+
+    public function excluirLogin() {
+        // abrir conexão em services connection.php
+        require '../services/connection.php';
+
+        $sql = "DELETE FROM login WHERE codLogin = :codLogin";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindValue(":codLogin", $this->codLogin);
+        $stmt->execute();
+        // echo "Login excluído com sucesso! " . $this->getCodLogin() . "<br>";
     }
 }

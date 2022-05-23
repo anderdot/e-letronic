@@ -33,7 +33,7 @@ $cliente->setEstado($_POST['estado']);
 $cliente->setSenha($_POST['senha']);
 
 // verificar se trouxe algum resultado, caso sim, exibir mensagem de já existe
-if ($cliente->selectEmail() > 0) {
+if ($cliente->selecionarEmail() > 0) {
     echo '<script>alert("Email já cadastrado!");</script>';
     echo '<script>location.href="../view/cadastro-cliente.html";</script>';
 } else {

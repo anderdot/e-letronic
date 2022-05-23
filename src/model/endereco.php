@@ -1,5 +1,5 @@
 <?php
-include 'login.php';
+require_once 'login.php';
 class endereco extends login {
     protected $codEndereco;
     protected $cep;
@@ -93,5 +93,32 @@ class endereco extends login {
         $stmt->execute();
         $this->setCodEndereco($conn->lastInsertId());
         // echo "Endereço cadastrado com sucesso! " . $this->getCodEndereco() . "<br>";
+    }
+
+    public function alterarEndereco() {
+        // abrir conexão em services connection.php
+        require '../services/connection.php';
+        $sql = "UPDATE endereco SET cep = :cep, endereco = :endereco, numero = :numero, complemento = :complemento, 
+                                    cidade = :cidade, estado = :estado WHERE codEndereco = :codEndereco";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(":cep", $this->cep);
+        $stmt->bindParam(":endereco", $this->endereco);
+        $stmt->bindParam(":numero", $this->numero);
+        $stmt->bindParam(":complemento", $this->complemento);
+        $stmt->bindParam(":cidade", $this->cidade);
+        $stmt->bindParam(":estado", $this->estado);
+        $stmt->bindParam(":codEndereco", $this->codEndereco);
+        $stmt->execute();
+        // echo "Endereço alterado com sucesso! " . $this->getCodEndereco() . "<br>";
+    }
+
+    public function excluirEndereco() {
+        // abrir conexão em services connection.php
+        require '../services/connection.php';
+        $sql = "DELETE FROM endereco WHERE codEndereco = :codEndereco";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(":codEndereco", $this->codEndereco);
+        $stmt->execute();
+        // echo "Endereço excluído com sucesso! " . $this->getCodEndereco() . "<br>";
     }
 }

@@ -6,9 +6,9 @@ $dbname = "eletronic";
 
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    echo "Connected successfully";
-    // return $conn;
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    // echo "Connected successfully<br>";
 } catch (PDOException $e) {
-    echo "Connection failed: " . $e->getMessage();
+    // echo "Connection failed: " . $e->getMessage() . "<br>";
     throw new PDOException($e);
 }

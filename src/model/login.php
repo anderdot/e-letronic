@@ -1,8 +1,8 @@
 <?php
 class login {
-    private $codLogin;
-    private $email;
-    private $senha;
+    protected $codLogin;
+    protected $email;
+    protected $senha;
 
     public function getCodLogin() {
         return $this->codLogin;
@@ -29,17 +29,16 @@ class login {
     }
 
     public function __construct() {
-        $this->codLogin = "";
+        $this->codLogin = 0;
         $this->email = "";
         $this->senha = "";
     }
 
-    // função para fazer select por email
     public function selectEmail() {
         // abrir conexão em services connection.php
-        require_once '../services/connection.php';
+        require '../services/connection.php';
 
-        $sql = "SELECT * FROM login WHERE email = :email";
+        $sql = "SELECT email FROM login WHERE email = :email";
         $stmt = $conn->prepare($sql);
         $stmt->bindValue(":email", $this->email);
         $stmt->execute();
@@ -48,25 +47,17 @@ class login {
         return $result;
     }
 
-    // função cadastrar login
     public function cadastrarlogin() {
         // abrir conexão em services connection.php
-        require_once '../services/connection.php';
-        // inserir no banco usando prepared statement
-        // $sql = "INSERT INTO login (email, senha) VALUES (:email, :senha)";
-        // $stmt = $conn->prepare($sql);
-        // $stmt->bindParam(":email", $this->email);
-        // $stmt->bindParam(":senha", $this->senha);
-        // print_r($stmt);
-        // $stmt->execute();
-        // $this->setCodLogin($conn->lastInsertId());
-        // print_r($this->codLogin);
+        require '../services/connection.php';
 
-        $sql = "INSERT INTO `login` (`email`, `senha`) VALUES (?, ?)";
+        // inserir no banco usando prepared statement
+        $sql = "INSERT INTO login (email, senha) VALUES (:email, :senha)";
         $stmt = $conn->prepare($sql);
-        $stmt->bindParam(1, $email);
-        $stmt->bindParam(2, $senha);
+        $stmt->bindParam(":email", $this->email);
+        $stmt->bindParam(":senha", $this->senha);
         $stmt->execute();
         $this->setCodLogin($conn->lastInsertId());
+        // echo "Login cadastrado com sucesso! " . $this->getCodLogin() . "<br>";
     }
 }

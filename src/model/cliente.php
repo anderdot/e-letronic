@@ -68,65 +68,19 @@ class cliente extends endereco {
 
     public function cadastrarCliente() {
         // abrir conexão em services connection.php
-        require_once '../services/connection.php';
-
-        $sql = "INSERT INTO cliente (nome, sobrenome, dataNascimento, cpf, telefone, email, senha) VALUES (:nome, :sobrenome, :dataNascimento, :cpf, :telefone, :email, :senha)";
+        require '../services/connection.php';
+        $sql = "INSERT INTO cliente (nome, sobrenome, dataNascimento, cpf, telefone, codEndereco, codLogin) 
+                             VALUES (:nome, :sobrenome, :dataNascimento, :cpf, :telefone, :codEndereco, :codLogin)";
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(":nome", $this->nome);
         $stmt->bindParam(":sobrenome", $this->sobrenome);
         $stmt->bindParam(":dataNascimento", $this->dataNascimento);
         $stmt->bindParam(":cpf", $this->cpf);
         $stmt->bindParam(":telefone", $this->telefone);
-        $stmt->bindParam(":email", $this->email);
-        $stmt->bindParam(":senha", $this->senha);
-        return $stmt->execute();
-    }
-
-    public function atualizarCliente() {
-        // abrir conexão em services connection.php
-        require_once '../services/connection.php';
-
-        $sql = "UPDATE cliente SET nome = :nome, sobrenome = :sobrenome, dataNascimento = :dataNascimento, cpf = :cpf, telefone = :telefone, email = :email, senha = :senha WHERE codCliente = :codCliente";
-        $stmt = $conn->prepare($sql);
-        $stmt->bindParam(":codCliente", $this->codCliente);
-        $stmt->bindParam(":nome", $this->nome);
-        $stmt->bindParam(":sobrenome", $this->sobrenome);
-        $stmt->bindParam(":dataNascimento", $this->dataNascimento);
-        $stmt->bindParam(":cpf", $this->cpf);
-        $stmt->bindParam(":telefone", $this->telefone);
-        $stmt->bindParam(":email", $this->email);
-        $stmt->bindParam(":senha", $this->senha);
-        return $stmt->execute();
-    }
-
-    public function excluirCliente() {
-        // abrir conexão em services connection.php
-        require_once '../services/connection.php';
-
-        $sql = "DELETE FROM cliente WHERE codCliente = :codCliente";
-        $stmt = $conn->prepare($sql);
-        $stmt->bindParam(":codCliente", $this->codCliente);
-        return $stmt->execute();
-    }
-
-    public function buscarCliente() {
-        // abrir conexão em services connection.php
-        require_once '../services/connection.php';
-
-        $sql = "SELECT * FROM cliente WHERE codCliente = :codCliente";
-        $stmt = $conn->prepare($sql);
-        $stmt->bindParam(":codCliente", $this->codCliente);
+        $stmt->bindParam(":codEndereco", $this->codEndereco);
+        $stmt->bindParam(":codLogin", $this->codLogin);
         $stmt->execute();
-        return $stmt->fetch(PDO::FETCH_ASSOC);
-    }
-
-    public function listarClientes() {
-        // abrir conexão em services connection.php
-        require_once '../services/connection.php';
-
-        $sql = "SELECT * FROM cliente";
-        $stmt = $conn->prepare($sql);
-        $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $this->setCodCliente($conn->lastInsertId());
+        // echo "Cliente cadastrado com sucesso! Código: " . $this->getCodCliente() . "<br>";
     }
 }

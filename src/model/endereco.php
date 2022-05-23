@@ -1,13 +1,13 @@
 <?php
 include 'login.php';
 class endereco extends login {
-    private $codEndereco;
-    private $cep;
-    private $endereco;
-    private $numero;
-    private $complemento;
-    private $cidade;
-    private $estado;
+    protected $codEndereco;
+    protected $cep;
+    protected $endereco;
+    protected $numero;
+    protected $complemento;
+    protected $cidade;
+    protected $estado;
 
     public function getCodEndereco() {
         return $this->codEndereco;
@@ -79,7 +79,7 @@ class endereco extends login {
     // método cadastrar endereço
     public function cadastrarEndereco() {
         // abrir conexão em services connection.php
-        require_once '../services/connection.php';
+        require '../services/connection.php';
         // inserir no banco usando prepare
         $sql = "INSERT INTO endereco (cep, endereco, numero, complemento, cidade, estado) 
                               VALUES (:cep, :endereco, :numero, :complemento, :cidade, :estado)";
@@ -92,5 +92,6 @@ class endereco extends login {
         $stmt->bindParam(":estado", $this->estado);
         $stmt->execute();
         $this->setCodEndereco($conn->lastInsertId());
+        // echo "Endereço cadastrado com sucesso! " . $this->getCodEndereco() . "<br>";
     }
 }

@@ -62,7 +62,7 @@
                 <form method="get" action=".">
                     <div class="form-row">
                         <div class="form-group col-md-12">
-                            <label for="inputEmail4">Razão Social</label>
+                            <label for="inputName">Razão Social</label>
                             <input type="text" class="form-control" id="inputName" placeholder="Talita Maria LTDA">
                         </div>
                     </div>
@@ -72,28 +72,27 @@
                             <input type="email" class="form-control" id="inputEmail4" placeholder="nome@exemplo.com">
                         </div>
                         <div class="form-group col-md-5">
-                            <label for="typeNumber">Telefone</label>
-                            <input type="text" class="form-control" id="typeNumber" placeholder="(11) 95487-3614">
+                            <label for="tel">Telefone</label>
+                            <input type="text" class="form-control" id="tel" placeholder="(11) 95487-3614">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="inputEmail4">CNPJ</label>
-                            <input oninput="mascaraCnpj(this)" type="text" class="form-control" id="inputName" placeholder="36.221.010/0001-16">
+                            <label for="cnpj">CNPJ</label>
+                            <input oninput="mascaraCnpj(this)" type="text" class="form-control" id="cnpj" placeholder="36.221.010/0001-16">
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="inputEmail4">I.E</label>
-                            <input type="text" class="form-control" id="inputName" placeholder="528.645.038.635">
+                            <label for="estadual">I.E</label>
+                            <input type="text" class="form-control" id="estadual" data-mask="000.000.000.000" placeholder="528.645.038.635">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-4">
-
-                            <label>CEP</label>
-                            <input name="cep" type="text" class="form-control" id="cep" placeholder="05318-925" onblur="pesquisacep(this.value);" />
+                            <label for="cep">CEP</label>
+                            <input name="cep" type="text" class="form-control" id="cep" placeholder="05318-925" onblur="pesquisacep(this.value);" data-mask="00000-000"/>
                         </div>
                         <div class="form-group col-md-8">
-                            <label>Endereço</label>
+                            <label for="rua">Endereço</label>
                             <input name="rua" type="text" class="form-control" placeholder="Bandeira Paulista" id="rua" />
                         </div>
                     </div>
@@ -109,26 +108,26 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label>Cidade</label>
+                            <label for="cidade">Cidade</label>
                             <input name="cidade" type="text" class="form-control" placeholder="São Paulo" id="cidade" />
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="inputState">Estado</label>
+                            <label for="uf">Estado</label>
                             <input name="uf" type="text" class="form-control" placeholder="SP" id="uf" />
                             </select>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="inputPassword4">Senha</label>
-                            <input type="password" class="form-control" id="inputPassword4" placeholder="Senha">
+                            <label for="inputPassword">Senha</label>
+                            <input type="password" class="form-control" id="inputPassword" placeholder="Senha">
                             <small id="passwordHelpBlock" class="form-text text-muted">
                                 Senha de 8-16 caracteres.
                             </small>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="inputPassword4">Confirmar Senha</label>
-                            <input type="password" class="form-control" id="inputPassword4" placeholder="Senha">
+                            <label for="inputPassword2">Confirmar Senha</label>
+                            <input type="password" class="form-control" id="inputPassword2" placeholder="Senha">
                         </div>
                     </div>
                     <a href="#" target="_self" class="button"><i class=""></i>Cadastrar-se</a>
@@ -164,5 +163,7 @@
 </body>
 
 <script src="../../scripts/cadastro-empresa.js"></script>
+<script type='text/javascript' src='//code.jquery.com/jquery-compat-git.js'></script>
+<script type='text/javascript' src='//igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js'></script>
 
 </html>

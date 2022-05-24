@@ -59,78 +59,78 @@
                     <p>Caso você seja uma empresa comprometida com isso e queira se juntar a causa, considere <a href="cadastro-empresa.html">se tornar um aliado</a>.</p>
                 </div>
 
-                <form method="get" action=".">
+                <form action="../controller/cadastrarEmpresa.php" method="post">
                     <div class="form-row">
                         <div class="form-group col-md-12">
                             <label for="inputName">Razão Social</label>
-                            <input type="text" class="form-control" id="inputName" placeholder="Talita Maria LTDA">
+                            <input type="text" name="razaoSocial" class="form-control" id="inputName" placeholder="Talita Maria LTDA" required>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-7">
                             <label for="inputEmail4">Email</label>
-                            <input type="email" class="form-control" id="inputEmail4" placeholder="nome@exemplo.com">
+                            <input type="email" name="email" class="form-control" id="inputEmail4" placeholder="nome@exemplo.com" required>
                         </div>
                         <div class="form-group col-md-5">
                             <label for="tel">Telefone</label>
-                            <input type="text" class="form-control" id="tel" placeholder="(11) 95487-3614">
+                            <input type="text" name="telefone" class="form-control" id="tel" placeholder="(11) 95487-3614" required>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="cnpj">CNPJ</label>
-                            <input oninput="mascaraCnpj(this)" type="text" class="form-control" id="cnpj" placeholder="36.221.010/0001-16">
+                            <input type="text" name="cnpj" oninput="mascaraCnpj(this)" class="form-control" id="cnpj" placeholder="36.221.010/0001-16" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="estadual">I.E</label>
-                            <input type="text" class="form-control" id="estadual" data-mask="000.000.000.000" placeholder="528.645.038.635">
+                            <input type="text" name="ie" class="form-control" id="estadual" data-mask="000.000.000.000" placeholder="528.645.038.635" required>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label for="cep">CEP</label>
-                            <input name="cep" type="text" class="form-control" id="cep" placeholder="05318-925" onblur="pesquisacep(this.value);" data-mask="00000-000"/>
+                            <input name="cep" type="text" class="form-control" id="cep" placeholder="05318-925" onblur="pesquisacep(this.value);" required>
                         </div>
                         <div class="form-group col-md-8">
                             <label for="rua">Endereço</label>
-                            <input name="rua" type="text" class="form-control" placeholder="Bandeira Paulista" id="rua" />
+                            <input name="endereco" type="text" class="form-control" placeholder="Bandeira Paulista" id="rua" required>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label for="typeNumber">Número</label>
-                            <input type="text" class="form-control" id="typeNumber" placeholder="3301">
+                            <input type="text" name="numero" class="form-control" id="typeNumber" placeholder="3301" required>
                         </div>
                         <div class="form-group col-md-8">
                             <label for="inputAddress2">Complemento</label>
-                            <input type="text" class="form-control" id="inputAddress2" placeholder="Bloco 1">
+                            <input type="text" name="complemento" class="form-control" id="inputAddress2" placeholder="Bloco 1" required>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="cidade">Cidade</label>
-                            <input name="cidade" type="text" class="form-control" placeholder="São Paulo" id="cidade" />
+                            <input name="cidade" type="text" class="form-control" placeholder="São Paulo" id="cidade" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="uf">Estado</label>
-                            <input name="uf" type="text" class="form-control" placeholder="SP" id="uf" />
+                            <input name="estado" type="text" class="form-control" placeholder="SP" id="uf" required>
                             </select>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="inputPassword">Senha</label>
-                            <input type="password" class="form-control" id="inputPassword" placeholder="Senha">
+                            <label for="senha">Senha</label>
+                            <input type="password" name="senha" class="form-control" id="senha" placeholder="Senha" required>
                             <small id="passwordHelpBlock" class="form-text text-muted">
                                 Senha de 8-16 caracteres.
                             </small>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="inputPassword2">Confirmar Senha</label>
-                            <input type="password" class="form-control" id="inputPassword2" placeholder="Senha">
+                            <label for="confirmarSenha">Confirmar Senha</label>
+                            <input type="password" name="confirmarSenha" class="form-control" id="confirmarSenha" placeholder="Senha" required>
                         </div>
                     </div>
-                    <a href="#" target="_self" class="button"><i class=""></i>Cadastrar-se</a>
+                    <button type="submit" class="btn btn-success button">Cadastrar-se</button>
                 </form>
             </div>
         </section>

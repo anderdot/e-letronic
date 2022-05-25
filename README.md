@@ -4,9 +4,9 @@
 - [X] Tela de cadastro de clientes
 - [X] Tela de cadastro de empresas
 - [X] Tela de login
-- [] Tela de cadastro de produtos
-- [] Tela de visualizar produtos
-- [] Tela de perfil
+- [X] Tela de cadastro de produtos
+- [X] Tela de visualizar produtos
+- [X] Tela de perfil
 
 ## Back-end
 - [X] Crud de clientes

@@ -16,10 +16,12 @@
     <link rel="stylesheet" href="../../assets/styles/style.css">
     <link rel="stylesheet" href="../../assets/styles/cadastro-cliente.css">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.pt-BR.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.pt-BR.min.js"></script> -->
 
     <!-- Icons (icomoon.io) -->
     <link rel="stylesheet" href="../../assets/fonts/style.css">
+
+    <link rel="stylesheet" href="../../assets/styles/perfil-cliente.css">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -50,29 +52,33 @@
         </nav>
     </header>
 
-    <main>
+    <main class="main-perfil-cliente">
         <!-- Home -->
         <section class="section" id="home">
-            <div class="container grid">
-                <form action="../controller/cadastrarCliente.php" method="post">
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="inputName">Total de cashback</label>
-                            <input type="text" name="nome" class="form-control" id="inputName" placeholder="Celso">
-                            <label for="inputName2">PIX: <strong>(11) 95456-5893</strong></label>
+            <div class="container">
+                <div class="d-flex justify-content-center">
+                    <form action="../controller/cadastrarCliente.php" method="post">
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label for="inputName">Total de cashback</label>
+                                <input type="text" name="nome" class="form-control" id="inputName" placeholder="Celso">
+                                <label for="inputName2">PIX: <strong>(11) 95456-5893</strong></label>
+                            </div>
                         </div>
-                        <div class="form-group col-md-6">
-                            <button type="submit" class="btn btn-success button">Editar Perfil</button>
-                            <button type="submit" class="btn btn-success button">Cadastrar Produto</button>
+                        <div class="row">
+                            <div class="form-group col-md-6 btns">
+                                <button type="submit" class="btn btn-success button btn-prof">Editar Perfil</button>
+                                <button type="submit" class="btn btn-success button btn-prof">Cadastrar Produto</button>
+                            </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
             <section class="section" id="services">
                 <div class="container">
-                    <div class="testimonials swiper-container">
+                    <div class="cards grid swiper-container">
                         <div class="swiper-wrapper">
-                            <div class="testimonial swiper-slide">
+                            <div class="testimonial swiper-slide card">
                                 <img src="../../assets/images/testimonial-01.jpg" alt="Foto de Casimiro">
                                 <blockquote>
                                     <p>
@@ -81,7 +87,7 @@
                                 </blockquote>
                             </div>
 
-                            <div class="testimonial swiper-slide">
+                            <div class="testimonial swiper-slide card">
                                 <blockquote>
                                     <img src="../../assets/images/testimonial-02.jpg" alt="Foto de Alexandra Moreira">
                                     <p>
@@ -90,7 +96,7 @@
                                 </blockquote>
                             </div>
 
-                            <div class="testimonial swiper-slide">
+                            <div class="testimonial swiper-slide card">
                                 <blockquote>
                                     <img src="../../assets/images/testimonial-03.jpg" alt="Foto de Franciele Siqueira">
                                     <p>

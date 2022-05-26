@@ -3,6 +3,7 @@ class login {
     protected $codLogin;
     protected $email;
     protected $senha;
+    protected $tipo;
 
     public function getCodLogin() {
         return $this->codLogin;
@@ -28,10 +29,19 @@ class login {
         $this->senha = md5($senha);
     }
 
+    public function getTipo() {
+        return $this->tipo;
+    }
+
+    public function setTipo($tipo) {
+        $this->tipo = $tipo;
+    }
+
     public function __construct() {
         $this->codLogin = 0;
         $this->email = "";
         $this->senha = "";
+        $this->tipo = "";
     }
 
     public function cadastrarlogin() {
@@ -39,10 +49,11 @@ class login {
         require '../services/connection.php';
 
         // inserir no banco usando prepared statement
-        $sql = "INSERT INTO login (email, senha) VALUES (:email, :senha)";
+        $sql = "INSERT INTO login (email, senha, tipo) VALUES (:email, :senha, :tipo)";
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(":email", $this->email);
         $stmt->bindParam(":senha", $this->senha);
+        $stmt->bindParam(":tipo", $this->tipo);
         $stmt->execute();
         $this->setCodLogin($conn->lastInsertId());
         // echo "Login cadastrado com sucesso! " . $this->getCodLogin() . "<br>";

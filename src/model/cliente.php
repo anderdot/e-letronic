@@ -116,7 +116,25 @@ class cliente extends endereco {
         $stmt->execute();
 
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $result;
+        $this->setCodCliente($result['codCliente']);
+        $this->setNome($result['nome']);
+        $this->setSobrenome($result['sobrenome']);
+        $this->setDataNascimento($result['dataNascimento']);
+        $this->setCpf($result['cpf']);
+        $this->setTelefone($result['telefone']);
+
+        $this->setCodEndereco($result['codEndereco']);
+        $this->setCep($result['cep']);
+        $this->setEndereco($result['endereco']);
+        $this->setNumero($result['numero']);
+        $this->setComplemento($result['complemento']);
+        $this->setCidade($result['cidade']);
+        $this->setEstado($result['estado']);
+
+        $this->setCodLogin($result['codLogin']);
+        $this->setEmail($result['email']);
+        $this->setSenha($result['senha']);
+        $this->setTipo($result['tipo']);
     }
 
     public function atualizarCliente() {

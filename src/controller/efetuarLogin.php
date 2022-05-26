@@ -10,31 +10,24 @@ $login = new login();
 
 $login->setEmail($_POST['email']);
 $login->setSenha($_POST['senha']);
+$dados = $login->selecionarLoginPorEmailSenha();
 
 // verificar se email e senha existem
-if ($login->selecionarLoginPorEmailSenha() == 0) {
+if ($dados == 0) {
     echo '<script>alert("Email e/ou senha incorretos!");</script>';
     echo '<script>location.href="../view/entrar.html";</script>';
-} 
+}
 
-// verificar se é email e senha de cliente
-include '../model/cliente.php';
-$cliente = new cliente();
-$cliente->setEmail($login->getEmail());
-$cliente->setSenha($login->getSenha());
-
-if ($cliente->selecionarClientePorEmailSenha() != 0) {
-    echo '<script>alert("Logadou como cliente!");</script>';
-    // echo '<script>location.href="../view/entrar.html";</script>';
-} 
-
-// verificar se é email e senha de empresa
-include '../model/empresa.php';
-$empresa = new empresa();
-$empresa->setEmail($login->getEmail());
-$empresa->setSenha($login->getSenha());
-
-if ($empresa->selecionarEmpresaPorEmailSenha() != 0) {
-    echo '<script>alert("Logado como empresa!");</script>';
-    // echo '<script>location.href="../view/entrar.html";</script>';
+if ($dados['tipo'] == 'cliente') {
+    include '../model/cliente.php';
+    $cliente = new cliente();
+    $cliente->selecionarClientePorEmailSenha();
+    echo '<script>alert("Bem-vindo, Cliente!");</script>';
+    echo '<script>location.href="../view/perfil-cliente.html";</script>';
+} else if ($dados['tipo'] == 'empresa') {
+    include '../model/empresa.php';
+    $empresa = new empresa();
+    $empresa->selecionarEmpresaPorEmailSenha();
+    echo '<script>alert("Bem-vindo, Empresa!");</script>';
+    echo '<script>location.href="../view/perfil-empresa.html";</script>';
 }

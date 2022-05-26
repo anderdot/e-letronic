@@ -5,14 +5,14 @@
 foreach ($_POST as $key => $value){
     if (empty($value)){
         echo '<script>alert("Preencha todos os campos!");</script>';
-        echo '<script>location.href="../view/clienteInserir";</script>';
+        echo '<script>location.href="../view/cadastro-empresa.html";</script>';
     }
 }
 
 // verificar senha e confirmar senha
 if ($_POST['senha'] != $_POST['confirmarSenha']){
     echo '<script>alert("Senhas não conferem!");</script>';
-    echo '<script>location.href="../view/clienteInserir";</script>';
+    echo '<script>location.href="../view/cadastro-empresa.html";</script>';
 }
 
 include '../model/empresa.php';
@@ -30,6 +30,7 @@ $empresa->setComplemento($_POST['complemento']);
 $empresa->setCidade($_POST['cidade']);
 $empresa->setEstado($_POST['estado']);
 $empresa->setSenha($_POST['senha']);
+$empresa->setTipo('empresa');
 
 // verificar se trouxe algum resultado, caso sim, exibir mensagem de já existe
 if ($empresa->selecionarEmail() > 0) {

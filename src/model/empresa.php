@@ -105,7 +105,25 @@ class empresa extends endereco {
         $stmt->execute();
 
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $result;
+        // setar na classe
+        $this->setCodEmpresa($result['codEmpresa']);
+        $this->setRazaoSocial($result['razaoSocial']);
+        $this->setTelefone($result['telefone']);
+        $this->setCnpj($result['cnpj']);
+        $this->setIe($result['ie']);
+
+        $this->setCodEndereco($result['codEndereco']);
+        $this->setCep($result['cep']);
+        $this->setEndereco($result['endereco']);
+        $this->setNumero($result['numero']);
+        $this->setComplemento($result['complemento']);
+        $this->setCidade($result['cidade']);
+        $this->setEstado($result['estado']);
+
+        $this->setCodLogin($result['codLogin']);
+        $this->setEmail($result['email']);
+        $this->setSenha($result['senha']);
+        $this->setTipo($result['tipo']);
     }
 
     public function alterarEmpresa() {

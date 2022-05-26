@@ -20,7 +20,7 @@ class empresa extends endereco {
     }
 
     public function setRazaoSocial($razaoSocial) {
-        $this->razaoSocial = $razaoSocial;
+        $this->razaoSocial = trim($razaoSocial);
     }
 
     public function getTelefone() {
@@ -28,7 +28,7 @@ class empresa extends endereco {
     }
 
     public function setTelefone($telefone) {
-        $this->telefone = $telefone;
+        $this->telefone = preg_replace('/[^0-9]/', '', $telefone);
     }
 
     public function getCnpj() {
@@ -36,7 +36,7 @@ class empresa extends endereco {
     }
 
     public function setCnpj($cnpj) {
-        $this->cnpj = $cnpj;
+        $this->cnpj = preg_replace('/[^0-9]/', '', $cnpj);
     }
 
     public function getIe() {
@@ -44,7 +44,7 @@ class empresa extends endereco {
     }
 
     public function setIe($ie) {
-        $this->ie = $ie;
+        $this->ie = preg_replace('/[^0-9]/', '', $ie);
     }
 
     // construtor vazio

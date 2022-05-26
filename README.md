@@ -6,7 +6,7 @@
 - [X] Tela de login
 - [X] Tela de cadastro de produtos
 - [X] Tela de visualizar produtos
-- [X] Tela de perfil
+- [] Tela de perfil
 
 ## Back-end
 - [X] Crud de clientes
@@ -20,13 +20,14 @@
 - [X] Criar tabela de Logins
 - [X] Criar tabela de clientes
 - [X] Criar tabela de empresas
-- [] Criar tabela de produtos
-- [] Criar tabela de status
-- [] Criar relacionamentos
+- [X] Criar tabela de produtos
+- [X] Criar tabela de status
+- [X] Criar relacionamentos
 
 ## Fix
-- [] Colocar mascara em todos os campos que precise
-- [] Criptografar a senha em SHA512
+- [X] Colocar mascara nos campos que precise
+- [X] Limpar mascaras dos campos
+- [X] Criptografar a senha em MD5
 - [] Configurar variáveis de sessão
 
 

@@ -22,7 +22,7 @@ class endereco extends login {
     }
 
     public function setCep($cep) {
-        $this->cep = $cep;
+        $this->cep = preg_replace('/[^0-9]/', '', $cep);
     }
 
     public function getEndereco() {
@@ -65,7 +65,6 @@ class endereco extends login {
         $this->estado = $estado;
     }
     
-    // contrutor setado vazio
     public function __construct() {
         $this->codEndereco = 0;
         $this->cep = "";

@@ -21,7 +21,7 @@ class cliente extends endereco {
     }
 
     public function setNome($nome) {
-        $this->nome = $nome;
+        $this->nome = trim($nome);
     }
 
     public function getSobrenome() {
@@ -29,15 +29,15 @@ class cliente extends endereco {
     }
 
     public function setSobrenome($sobrenome) {
-        $this->sobrenome = $sobrenome;
+        $this->sobrenome = trim($sobrenome);
     }
 
     public function getDataNascimento() {
-        return $this->dataNascimento;
+        return implode('/', array_reverse(explode('-', $this->dataNascimento)));
     }
 
     public function setDataNascimento($dataNascimento) {
-        $this->dataNascimento = $dataNascimento;
+        $this->dataNascimento = implode('-', array_reverse(explode('/', $dataNascimento)));
     }
 
     public function getCpf() {
@@ -45,7 +45,7 @@ class cliente extends endereco {
     }
 
     public function setCpf($cpf) {
-        $this->cpf = $cpf;
+        $this->cpf = preg_replace('/[^0-9]/', '', $cpf);
     }
 
     public function getTelefone() {
@@ -53,7 +53,7 @@ class cliente extends endereco {
     }
 
     public function setTelefone($telefone) {
-        $this->telefone = $telefone;
+        $this->telefone = preg_replace('/[^0-9]/', '', $telefone);
     }
 
     // construtor vazio

@@ -18,16 +18,29 @@ if ($dados == 0) {
     echo '<script>location.href="../view/entrar.html";</script>';
 }
 
+// começa uma sessão
+session_start();
+
 if ($dados['tipo'] == 'cliente') {
     include '../model/cliente.php';
     $cliente = new cliente();
+    $cliente->setEmail($_POST['email']);
+    $cliente->setSenha($_POST['senha']);
     $cliente->selecionarClientePorEmailSenha();
-    echo '<script>alert("Bem-vindo, Cliente!");</script>';
-    echo '<script>location.href="../view/perfil-cliente.html";</script>';
+
+    // carregar dados do cliente na sessão
+    $_SESSION['logado'] = $cliente;
+    // echo '<script>alert("Bem-vindo, Cliente!");</script>';
 } else if ($dados['tipo'] == 'empresa') {
     include '../model/empresa.php';
     $empresa = new empresa();
+    $empresa->setEmail($_POST['email']);
+    $empresa->setSenha($_POST['senha']);
     $empresa->selecionarEmpresaPorEmailSenha();
-    echo '<script>alert("Bem-vindo, Empresa!");</script>';
-    echo '<script>location.href="../view/perfil-empresa.html";</script>';
+
+    // carregar dados da empresa na sessão
+    $_SESSION['logado'] = $empresa;
+    // echo '<script>alert("Bem-vindo, Empresa!");</script>';
 }
+
+echo '<script>location.href="../view/home.php";</script>';

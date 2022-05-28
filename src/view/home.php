@@ -3,7 +3,6 @@ include("../model/cliente.php");
 include("../model/empresa.php");
 // start a session
 session_start();
-// unserialize o objeto cliente
 $logado = unserialize($_SESSION['logado']);
 ?>
 
@@ -50,7 +49,10 @@ $logado = unserialize($_SESSION['logado']);
             <a class="logo" href="index.html">e-<span>Letronic</span></a>
             <div class="menu">
                 <ul class="grid">
-                    <li><a class="title" href="index.html">Início</a></li>
+                    <?php
+                        echo '<li><a class="title" href="perfil-'. $logado->getTipo() .'.html">' . 
+                        mb_strimwidth($logado->getTipo() == "cliente" ? $logado->getNome() : $logado->getRazaoSocial(), 0, 12) . '</a></li>'
+                    ?>
                 </ul>
             </div>
             <div class="toggle icon-menu"></div>

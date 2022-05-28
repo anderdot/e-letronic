@@ -5,14 +5,26 @@
 - [X] Tela de cadastro de empresas
 - [X] Tela de login
 - [X] Tela de cadastro de produtos
-- [X] Tela de visualizar produtos
-- [] Tela de perfil
+- [ ] Tela de visualizar produtos
+- [ ] Tela de perfil
 
 ## Back-end
 - [X] Crud de clientes
+  - [X] Cadastro
+  - [ ] Listagem
+  - [ ] Edição
+  - [ ] Exclusão
 - [X] Crud de empresas
-- [] Crud de produtos
-- [] Login com session nas paginas
+  - [X] Cadastro
+  - [ ] Listagem
+  - [ ] Edição
+  - [ ] Exclusão
+- [ ] Crud de produtos
+  - [ ] Cadastro
+  - [ ] Listagem
+  - [ ] Edição
+  - [ ] Exclusão
+- [ ] Login com session nas paginas
 
 ## Banco
 - [X] Criar banco de dados
@@ -23,11 +35,12 @@
 - [X] Criar tabela de produtos
 - [X] Criar tabela de status
 - [X] Criar relacionamentos
+- [ ] Criar inserções
 
-## Fix
+## Misc
 - [X] Colocar mascara nos campos que precise
 - [X] Limpar mascaras dos campos
 - [X] Criptografar a senha em MD5
-- [] Configurar variáveis de sessão
+- [X] Configurar variáveis de sessão
 
 

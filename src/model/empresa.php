@@ -73,7 +73,7 @@ class empresa extends endereco {
         // echo "Empresa cadastrada com sucesso! Codigo: " . $this->getCodEmpresa() . "<br>";
     }
 
-    public function selecionarEmpresaPorCod() {
+    public function selecionarPorCod() {
         // abrir conexão em services connection.php
         require '../services/connection.php';
         $sql = "SELECT * FROM `empresa` AS M
@@ -90,7 +90,7 @@ class empresa extends endereco {
         return $result;
     }
 
-    public function selecionarEmpresaPorEmailSenha() {
+    public function selecionarPorEmailSenha() {
         // abrir conexão em services connection.php
         require '../services/connection.php';
         $sql = "SELECT * FROM `empresa` AS M
@@ -126,7 +126,7 @@ class empresa extends endereco {
         $this->setTipo($result['tipo']);
     }
 
-    public function alterarEmpresa() {
+    public function alterar() {
         // abrir conexão em services connection.php
         require '../services/connection.php';
         $sql = "UPDATE empresa SET razaoSocial = :razaoSocial, telefone = :telefone, cnpj = :cnpj, ie = :ie, 
@@ -142,7 +142,7 @@ class empresa extends endereco {
         // echo "Empresa atualizado com sucesso! Código: " . $this->getCodEmpresa() . "<br>";
     }
 
-    public function excluirEmpresa() {
+    public function excluir() {
         // abrir conexão em services connection.php
         require '../services/connection.php';
         $sql = "DELETE FROM empresa WHERE codEmpresa = :codEmpresa";

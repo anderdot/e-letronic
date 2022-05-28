@@ -1,6 +1,10 @@
 <?php
+include("../model/cliente.php");
+include("../model/empresa.php");
 // start a session
 session_start();
+// unserialize o objeto cliente
+$logado = unserialize($_SESSION['logado']);
 ?>
 
 <!DOCTYPE html>
@@ -12,7 +16,7 @@ session_start();
 
     <!-- Primary Meta Tags -->
     <title>e-Letronic</title>
-    <meta name="title" content="e-Letronic">
+    <meta name="title" content="Inicio|e-Letronic">
     <meta name="description" content="Reciclagem de lixo eletrônico">
 
     <!-- Styles -->
@@ -20,7 +24,7 @@ session_start();
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="../../assets/styles/style.css">
     <link rel="stylesheet" href="../../assets/styles/cadastro-cliente.css">
-    <link rel="stylesheet" href="../../assets/styles/cadastro-produto.css">
+    <!-- <link rel="stylesheet" href="../../assets/styles/cadastro-produto.css"> -->
     <!-- bootstrap.bundle.js -->
 
     <!-- Icons (icomoon.io) -->
@@ -43,7 +47,7 @@ session_start();
     <!-- Header -->
     <header id="header">
         <nav class="container">
-            <a class="logo" href="#">e-<span>Letronic</span></a>
+            <a class="logo" href="index.html">e-<span>Letronic</span></a>
             <div class="menu">
                 <ul class="grid">
                     <li><a class="title" href="index.html">Início</a></li>
@@ -54,27 +58,39 @@ session_start();
         </nav>
     </header>
 
-    <main>
-        <!-- Home -->
-        <section class="section" id="home">
-            <div class="container grid">
-                <form class="mt-3">
-                    <div class="form-group col-md-10">
-                        <label for="inputTipo"><strong>Status</strong></label>
-                        <input type="text" class="form-control" id="inputtype5" value="Cashback enviado." disabled>
-                        <small id="passwordHelpBlock" class="form-text text-muted">
-                            atualizado em 25/05/2022
-                        </small>
-                    </div>
-                    <div class="form-group col-md-10">
-                        <label for="inputTipo"><strong>Cashback</strong></label>
-                        <input type="text" class="form-control" id="inputtype5" value="BRL 126,00" disabled>
-                    </div>
-                </form>
+    <section class="section" id="home">
+        <div class="container grid">
+            <div class="text form-row">
+                <h2 class="title">Como funciona?</h2>
+                <p>É muito simples, basta clicar no botão abaixo para cadastrar um produto. Depois leva-lo no ponto mais próximo de você, mostrado no mapa a seguir.</p>
+                <button type="button" onclick="location.href='cadastro-produto.html'" class="btn btn-success button">Começar!</button>
             </div>
-        </section>
-        <!-- Testimonials -->
-        <div class="section" id="testimonials">
+            <div class="mapouter form-row">
+                <div class="gmap_canvas"><iframe width="700" height="360" id="gmap_canvas" src="https://maps.google.com/maps?q=triaton%20-%20masp&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://123movies-to.org"></a><br>
+                    <style>
+                        .mapouter {
+                            position: relative;
+                            text-align: right;
+                            height: 360px;
+                            width: 700px;
+                            margin-top: 120px;
+                        }
+                    </style><a href="https://www.embedgooglemap.net">embed google my maps</a>
+                    <style>
+                        .gmap_canvas {
+                            overflow: hidden;
+                            background: none !important;
+                            height: 360px;
+                            width: 700px;
+                        }
+                    </style>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <section class="section" id="testimonials">
             <div class="container">
                 <header>
                     <h2 class="title">Quem utiliza, recomenda!</h2>
@@ -87,9 +103,9 @@ session_start();
                                     <span>&ldquo;</span> Achei pika, mané. Ta de brincadeira, os caras mandam muito, ta maluco.
                                 </p>
                                 <cite>
-                  <img src="../../assets/images/testimonial-01.jpg" alt="Foto de Casimiro">
-                  Casimiro
-                </cite>
+                                    <img src="../../assets/images/testimonial-01.jpg" alt="Foto de Casimiro">
+                                    Casimiro
+                                </cite>
                             </blockquote>
                         </div>
 
@@ -99,9 +115,9 @@ session_start();
                                     <span>&ldquo;</span>Eu sou cliente de e-Letronic, e eu não posso deixar de dizer que eu gosto muito.
                                 </p>
                                 <cite>
-                  <img src="../../assets/images/testimonial-02.jpg" alt="Foto de Alexandra Moreira">
-                  Alexandra Moreira
-                </cite>
+                                    <img src="../../assets/images/testimonial-02.jpg" alt="Foto de Alexandra Moreira">
+                                    Alexandra Moreira
+                                </cite>
                             </blockquote>
                         </div>
 
@@ -111,9 +127,9 @@ session_start();
                                     <span>&ldquo;</span> Minha empresa presta serviço, e desde o inicio acreditamos que a e-Letronic é a melhor opção.
                                 </p>
                                 <cite>
-                  <img src="../../assets/images/testimonial-03.jpg" alt="Foto de Franciele Siqueira">
-                  Franciele Siqueira
-                </cite>
+                                    <img src="../../assets/images/testimonial-03.jpg" alt="Foto de Franciele Siqueira">
+                                    Franciele Siqueira
+                                </cite>
                             </blockquote>
                         </div>
                     </div>
@@ -121,6 +137,7 @@ session_start();
                     <div class="swiper-pagination"></div>
                 </div>
             </div>
+        </section>
     </main>
 
     <footer class="section ">

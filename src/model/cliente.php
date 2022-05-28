@@ -84,7 +84,7 @@ class cliente extends endereco {
         // echo "Cliente cadastrado com sucesso! Código: " . $this->getCodCliente() . "<br>";
     }
 
-    public function selecionarClientePorCod() {
+    public function selecionarPorCod() {
         // abrir conexão em services connection.php
         require '../services/connection.php';
         $sql = "SELECT * FROM `cliente` AS C
@@ -101,7 +101,7 @@ class cliente extends endereco {
         return $result;
     }
 
-    public function selecionarClientePorEmailSenha() {
+    public function selecionarPorEmailSenha() {
         // abrir conexão em services connection.php
         require '../services/connection.php';
         $sql = "SELECT * FROM `cliente` AS C
@@ -137,7 +137,7 @@ class cliente extends endereco {
         $this->setTipo($result['tipo']);
     }
 
-    public function atualizarCliente() {
+    public function atualizar() {
         // abrir conexão em services connection.php
         require '../services/connection.php';
         $sql = "UPDATE cliente SET nome = :nome, sobrenome = :sobrenome, dataNascimento = :dataNascimento, cpf = :cpf, telefone = :telefone, 
@@ -155,7 +155,7 @@ class cliente extends endereco {
         // echo "Cliente atualizado com sucesso! Código: " . $this->getCodCliente() . "<br>";
     }
 
-    public function excluirCliente() {
+    public function excluir() {
         // abrir conexão em services connection.php
         require '../services/connection.php';
         $sql = "DELETE FROM cliente WHERE codCliente = :codCliente";

@@ -26,20 +26,20 @@ if ($dados['tipo'] == 'cliente') {
     $cliente = new cliente();
     $cliente->setEmail($_POST['email']);
     $cliente->setSenha($_POST['senha']);
-    $cliente->selecionarClientePorEmailSenha();
+    $cliente->selecionarPorEmailSenha();
 
     // carregar dados do cliente na sessão
-    $_SESSION['logado'] = $cliente;
+    $_SESSION['logado'] = serialize($cliente);
     // echo '<script>alert("Bem-vindo, Cliente!");</script>';
 } else if ($dados['tipo'] == 'empresa') {
     include '../model/empresa.php';
     $empresa = new empresa();
     $empresa->setEmail($_POST['email']);
     $empresa->setSenha($_POST['senha']);
-    $empresa->selecionarEmpresaPorEmailSenha();
+    $empresa->selecionarPorEmailSenha();
 
     // carregar dados da empresa na sessão
-    $_SESSION['logado'] = $empresa;
+    $_SESSION['logado'] = serialize($empresa);
     // echo '<script>alert("Bem-vindo, Empresa!");</script>';
 }
 

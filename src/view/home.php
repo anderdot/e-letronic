@@ -4,6 +4,12 @@ include("../model/empresa.php");
 // start a session
 session_start();
 $logado = unserialize($_SESSION['logado']);
+
+if ($logado == null) {
+    header("Location: ../view/login.php");
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -22,8 +28,7 @@ $logado = unserialize($_SESSION['logado']);
     <link rel="stylesheet" href="../../libs/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="../../assets/styles/style.css">
-    <link rel="stylesheet" href="../../assets/styles/cadastro-cliente.css">
-    <!-- <link rel="stylesheet" href="../../assets/styles/cadastro-produto.css"> -->
+    <link rel="stylesheet" href="../../assets/styles/home.css">
     <!-- bootstrap.bundle.js -->
 
     <!-- Icons (icomoon.io) -->
@@ -95,43 +100,19 @@ $logado = unserialize($_SESSION['logado']);
         <section class="section" id="testimonials">
             <div class="container">
                 <header>
-                    <h2 class="title">Quem utiliza, recomenda!</h2>
+                    <h2 class="title">Seus produtos</h2>
                 </header>
                 <div class="testimonials swiper-container">
                     <div class="swiper-wrapper">
                         <div class="testimonial swiper-slide">
                             <blockquote>
-                                <p>
-                                    <span>&ldquo;</span> Achei pika, mané. Ta de brincadeira, os caras mandam muito, ta maluco.
-                                </p>
                                 <cite>
-                                    <img src="../../assets/images/testimonial-01.jpg" alt="Foto de Casimiro">
-                                    Casimiro
+                                    <img src="../../assets/images/produto.jpg" alt="Foto do Produto">
                                 </cite>
-                            </blockquote>
-                        </div>
-
-                        <div class="testimonial swiper-slide">
-                            <blockquote>
-                                <p>
-                                    <span>&ldquo;</span>Eu sou cliente de e-Letronic, e eu não posso deixar de dizer que eu gosto muito.
-                                </p>
-                                <cite>
-                                    <img src="../../assets/images/testimonial-02.jpg" alt="Foto de Alexandra Moreira">
-                                    Alexandra Moreira
-                                </cite>
-                            </blockquote>
-                        </div>
-
-                        <div class="testimonial swiper-slide">
-                            <blockquote>
-                                <p>
-                                    <span>&ldquo;</span> Minha empresa presta serviço, e desde o inicio acreditamos que a e-Letronic é a melhor opção.
-                                </p>
-                                <cite>
-                                    <img src="../../assets/images/testimonial-03.jpg" alt="Foto de Franciele Siqueira">
-                                    Franciele Siqueira
-                                </cite>
+                                <p>Status</p>
+                                <small id="passwordHelpBlock" class="form-text text-muted">
+                                    atualizado em 25/05/2022
+                                </small>
                             </blockquote>
                         </div>
                     </div>

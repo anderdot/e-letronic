@@ -1,6 +1,7 @@
 <?php
 include("../model/cliente.php");
 include("../model/empresa.php");
+include("../model/produto.php");
 // start a session
 session_start();
 $logado = unserialize($_SESSION['logado']);
@@ -56,7 +57,7 @@ if ($logado == null) {
                 <ul class="grid">
                     <?php
                         echo '<li><a class="title" href="perfil-'. $logado->getTipo() .'.html">' . 
-                        mb_strimwidth($logado->getTipo() == "cliente" ? $logado->getNome() : $logado->getRazaoSocial(), 0, 12) . '</a></li>'
+                        mb_strimwidth($logado->getTipo() == "cliente" ? $logado->getNome() : $logado->getRazaoSocial(), 0, 15) . '</a></li>'
                     ?>
                 </ul>
             </div>
@@ -104,17 +105,24 @@ if ($logado == null) {
                 </header>
                 <div class="testimonials swiper-container">
                     <div class="swiper-wrapper">
-                        <div class="testimonial swiper-slide">
+                        <?php
+                        $produtoz = new Produto();
+                        $produtos = $logado->getTipo() == "cliente" ? $produtoz->selecionarPorCodCliente($logado->getCodCliente()) : 
+                                                                      $produtoz->selecionarPorCodEmpresa($logado->getCodEmpresa());
+                        foreach ($produtos as $produto) {
+                        echo '<div class="testimonial swiper-slide">
                             <blockquote>
                                 <cite>
                                     <img src="../../assets/images/produto.jpg" alt="Foto do Produto">
                                 </cite>
-                                <p>Status</p>
+                                <p>' . $produto['modelo'] . '</p>
                                 <small id="passwordHelpBlock" class="form-text text-muted">
-                                    atualizado em 25/05/2022
+                                    ' . $produto['alterado'] . '
                                 </small>
                             </blockquote>
-                        </div>
+                        </div>';
+                        }
+                        ?>
                     </div>
                     <!-- Pagination -->
                     <div class="swiper-pagination"></div>

@@ -58,30 +58,30 @@
                     <p>Cadastre agora o produto, e após o envio e analises de especialistas, receba <a href="#">um cashback</a>.</p>
                 </div>
 
-                <form class="mt-3">
+                <form class="mt-3" action="../controller/cadastrarProduto.php" method="post">
                     <div class="form-row">
                         <div class="form-group col-md-12">
                             <label for="inputTipo">Tipo</label>
-                            <input type="text" class="form-control" id="inputtype5" placeholder="Smartphone">
+                            <input type="text" name="tipo" class="form-control" id="inputtype5" placeholder="Smartphone">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-12">
                             <label for="inputModelo">Modelo</label>
-                            <input type="text" class="form-control" id="inputtype4" placeholder="Samsung i7500">
+                            <input type="text" name="modelo" class="form-control" id="inputtype4" placeholder="Samsung i7500">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-12">
                             <label for="inputFuncionando">O produto está funcionando?</label>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="funcionando" id="funcionandoSim" value="sim" checked>
+                                <input class="form-check-input" name="funcionandoSim" type="radio" id="funcionandoSim" value="sim" checked>
                                 <label class="form-check-label" for="funcionandoSim">
                                     Sim
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="funcionando" id="funcionandoNao" value="nao">
+                                <input class="form-check-input" name="funcionandoNao" type="radio" id="funcionandoNao" value="nao">
                                 <label class="form-check-label" for="funcionandoNao">
                                     Não
                                 </label>
@@ -91,13 +91,13 @@
                     <div class="form-row">
                         <div class="form-group col-md-12">
                             <label for="inputTipo">Tempo de uso</label>
-                            <input type="text" class="form-control" id="inputtype4" placeholder="3 anos e 2 meses">
+                            <input type="text" name="tempoUso" class="form-control" id="inputtype4" placeholder="3 anos e 2 meses">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-12">
                             <label for="inputTipo">Descritivo</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" placeholder="Apenas rachou a tela."></textarea>
+                            <textarea name="descritivo" class="form-control" id="exampleFormControlTextarea1" rows="4" placeholder="Apenas rachou a tela."></textarea>
                         </div>
                     </div>
                     <div class="form-row">

@@ -48,9 +48,10 @@ if ($logado == null) {
     <!-- Header -->
     <header id="header">
         <nav class="container">
-            <a class="logo" href="index.html">e-<span>Letronic</span></a>
+            <a class="logo" href="home.php">e-<span>Letronic</span></a>
             <div class="menu">
                 <ul class="grid">
+                    <li><a class="title" href="../controller/excluir-empresa.php">Excluir</a></li>
                     <li><a class="title" href="perfil-empresa.php">Voltar</a></li>
                 </ul>
             </div>
@@ -140,7 +141,7 @@ if ($logado == null) {
                             <input type="password" name="confirmarNovaSenha" class="form-control" id="inputPassword2" placeholder="Senha" value="" required>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-success button">Cadastrar-se</button>
+                    <button type="submit" class="btn btn-success button">Alterar</button>
                 </form>
             </div>
         </section>

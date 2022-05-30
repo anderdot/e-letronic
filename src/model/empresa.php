@@ -126,13 +126,14 @@ class empresa extends endereco {
         $this->setTipo($result['tipo']);
     }
 
-    public function alterar() {
+    public function alterarEmpresa() {
         // abrir conexão em services connection.php
         require '../services/connection.php';
         $sql = "UPDATE empresa SET razaoSocial = :razaoSocial, telefone = :telefone, cnpj = :cnpj, ie = :ie, 
                                    codEndereco = :codEndereco, codLogin = :codLogin WHERE codEmpresa = :codEmpresa";
         $stmt = $conn->prepare($sql);
         $stmt->bindValue(':razaoSocial', $this->razaoSocial);
+        $stmt->bindValue(':telefone', $this->telefone);
         $stmt->bindValue(':cnpj', $this->cnpj);
         $stmt->bindValue(':ie', $this->ie);
         $stmt->bindValue(':codEndereco', $this->codEndereco);
@@ -142,7 +143,7 @@ class empresa extends endereco {
         // echo "Empresa atualizado com sucesso! Código: " . $this->getCodEmpresa() . "<br>";
     }
 
-    public function excluir() {
+    public function excluirEmpresa() {
         // abrir conexão em services connection.php
         require '../services/connection.php';
         $sql = "DELETE FROM empresa WHERE codEmpresa = :codEmpresa";

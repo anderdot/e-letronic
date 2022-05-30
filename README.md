@@ -18,7 +18,7 @@
   - [X] Cadastro
   - [X] Listagem
   - [X] Edição
-  - [ ] Exclusão
+  - [X] Exclusão
 - [ ] Crud de produtos
   - [X] Cadastro
   - [X] Listagem

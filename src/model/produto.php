@@ -154,7 +154,7 @@ class produto {
         return $result;
     }
 
-    public function atualizar() {
+    public function atualizarProduto() {
         // abrir conexão em services connection.php
         require '../services/connection.php';
         $sql = "UPDATE produto SET tipo = :tipo, modelo = :modelo, imagem = :imagem, funcionando = :funcionando, tempoUso = :tempoUso, especificacoes = :especificacoes, codStatus = :codStatus WHERE codProduto = :codProduto";
@@ -171,12 +171,32 @@ class produto {
         // echo '<script>alert("Produto atualizado com sucesso!");</script>';
     }
 
-    public function deletar() {
+    public function deletarProduto() {
         // abrir conexão em services connection.php
         require '../services/connection.php';
         $sql = "DELETE FROM produto WHERE codProduto = :codProduto";
         $stmt = $conn->prepare($sql);
         $stmt->bindValue(':codProduto', $this->codProduto);
+        $stmt->execute();
+        // echo '<script>alert("Produto deletado com sucesso!");</script>';
+    }
+
+    public function deletarProdutoPorCodCliente($codCliente) {
+        // abrir conexão em services connection.php
+        require '../services/connection.php';
+        $sql = "DELETE FROM clienteProduto WHERE codCliente = :codCliente";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindValue(':codProduto', $codCliente);
+        $stmt->execute();
+        // echo '<script>alert("Produto deletado com sucesso!");</script>';
+    }
+
+    public function deletarProdutoPorCodEmpresa($codEmpresa) {
+        // abrir conexão em services connection.php
+        require '../services/connection.php';
+        $sql = "DELETE FROM empresaProduto WHERE codEmpresa = :codEmpresa";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindValue(':codEmpresa', $codEmpresa);
         $stmt->execute();
         // echo '<script>alert("Produto deletado com sucesso!");</script>';
     }

@@ -53,7 +53,7 @@ if ($logado == null) {
             <a class="logo" href="home.php">e-<span>Letronic</span></a>
             <div class="menu">
                 <ul class="grid">
-                <li><a class="title" href="../controller/excluir-cliente.php">Excluir</a></li>
+                    <li><a class="title" href="../controller/excluirCliente.php">Excluir</a></li>
                     <li><a class="title" href="perfil-cliente.php">Voltar</a></li>
                 </ul>
             </div>

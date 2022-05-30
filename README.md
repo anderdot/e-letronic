@@ -17,7 +17,7 @@
 - [X] Crud de empresas
   - [X] Cadastro
   - [X] Listagem
-  - [ ] Edição
+  - [X] Edição
   - [ ] Exclusão
 - [ ] Crud de produtos
   - [X] Cadastro

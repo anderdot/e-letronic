@@ -6,22 +6,22 @@
 - [X] Tela de login
 - [X] Tela de cadastro de produtos
 - [ ] Tela de visualizar produtos
-- [ ] Tela de perfil
+- [X] Tela de perfil
 
 ## Back-end
 - [X] Crud de clientes
   - [X] Cadastro
-  - [ ] Listagem
+  - [X] Listagem
   - [ ] Edição
   - [ ] Exclusão
 - [X] Crud de empresas
   - [X] Cadastro
-  - [ ] Listagem
+  - [X] Listagem
   - [ ] Edição
   - [ ] Exclusão
 - [ ] Crud de produtos
-  - [ ] Cadastro
-  - [ ] Listagem
+  - [X] Cadastro
+  - [X] Listagem
   - [ ] Edição
   - [ ] Exclusão
 - [ ] Login com session nas paginas
@@ -35,7 +35,7 @@
 - [X] Criar tabela de produtos
 - [X] Criar tabela de status
 - [X] Criar relacionamentos
-- [ ] Criar inserções
+- [X] Criar inserções
 
 ## Misc
 - [X] Colocar mascara nos campos que precise

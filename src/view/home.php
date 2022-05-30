@@ -56,7 +56,7 @@ if ($logado == null) {
             <div class="menu">
                 <ul class="grid">
                     <?php
-                        echo '<li><a class="title" href="perfil-'. $logado->getTipo() .'.html">' . 
+                        echo '<li><a class="title" href="perfil-'. $logado->getTipo() .'.php">' . 
                         mb_strimwidth($logado->getTipo() == "cliente" ? $logado->getNome() : $logado->getRazaoSocial(), 0, 15) . '</a></li>'
                     ?>
                 </ul>

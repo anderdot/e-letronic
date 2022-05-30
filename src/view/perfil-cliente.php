@@ -1,3 +1,18 @@
+<?php
+include("../model/cliente.php");
+include("../model/produto.php");
+// start a session
+session_start();
+$logado = unserialize($_SESSION['logado']);
+
+if ($logado == null) {
+    header("Location: ../view/login.php");
+}
+
+$produto = new produto();
+$inf = $produto->selecionarPorUltimaAtualizacao($logado->getCodCliente());
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -14,7 +29,6 @@
     <link rel="stylesheet" href="../../libs/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="../../assets/styles/style.css">
-    <!-- <link rel="stylesheet" href="../../assets/styles/cadastro-cliente.css"> -->
     <link rel="stylesheet" href="../../assets/styles/perfil-cliente.css">
     <!-- bootstrap.bundle.js -->
 
@@ -41,7 +55,8 @@
             <a class="logo" href="index.html">e-<span>Letronic</span></a>
             <div class="menu">
                 <ul class="grid">
-                    <li><a class="title" href="index.html">Início</a></li>
+                    <li><a class="title" href="../view/editar-perfil.php">Editar Perfil</a></li>
+                    <li><a class="title" href="sair.php">Sair</a></li>
                 </ul>
             </div>
             <div class="toggle icon-menu"></div>
@@ -53,25 +68,25 @@
         <!-- Home -->
         <section class="section" id="home">
             <div class="container grid">
-                <form class="mt-3">
-                    <div class="form-group col-md-10">
+                <form>
+                    <div class="form-group col-md-10 mt-5">
                         <label for="inputTipo"><strong>Status</strong></label>
-                        <input type="text" class="form-control" id="inputtype5" value="Cashback enviado." disabled>
+                        <input type="text" class="form-control" id="inputtype5" value="<?php echo $inf['nomeStatus']?>" disabled>
                         <small id="passwordHelpBlock" class="form-text text-muted">
-                            atualizado em 25/05/2022
+                            <?php $inf['alterado'] ?>
                         </small>
                     </div>
                     <div class="form-group col-md-10">
                         <label for="inputTipo"><strong>Cashback</strong></label>
-                        <input type="text" class="form-control" id="inputtype5" value="BRL 126,00" disabled>
+                        <input type="text" class="form-control" id="inputtype5" value="BRL <?php echo $inf['cashback'] ?>" disabled>
                     </div>
                 </form>
             </div>
         </section>
     </main>
 
-    <footer class="section ">
-        <div class="container grid ">
+    <footer class="section mt-5">
+        <div class="container grid">
             <div class="brand ">
                 <a class="logo logo-alt " href="#home ">e-<span>Letronic</span></a>
                 <p>2022 e-Letronic</p>

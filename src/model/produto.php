@@ -141,6 +141,19 @@ class produto {
         return $result;
     }
 
+    // selecionar o produto com a maior data
+    public function selecionarPorUltimaAtualizacao($codCliente) {
+        // abrir conexão em services connection.php
+        require '../services/connection.php';
+        $sql = "SELECT MAX(alterado) AS alterado, nomeStatus, cashback FROM produto AS p INNER JOIN produtoStatus AS s ON p.codStatus = s.codStatus 
+                INNER JOIN clienteProduto AS c ON p.codProduto = c.codProduto WHERE c.codCliente = :codCliente GROUP BY nomeStatus, cashback";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindValue(':codCliente', $codCliente);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
     public function atualizar() {
         // abrir conexão em services connection.php
         require '../services/connection.php';

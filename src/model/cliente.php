@@ -137,7 +137,7 @@ class cliente extends endereco {
         $this->setTipo($result['tipo']);
     }
 
-    public function atualizar() {
+    public function alterarCliente() {
         // abrir conexão em services connection.php
         require '../services/connection.php';
         $sql = "UPDATE cliente SET nome = :nome, sobrenome = :sobrenome, dataNascimento = :dataNascimento, cpf = :cpf, telefone = :telefone, 
@@ -155,7 +155,7 @@ class cliente extends endereco {
         // echo "Cliente atualizado com sucesso! Código: " . $this->getCodCliente() . "<br>";
     }
 
-    public function excluir() {
+    public function excluirCliente() {
         // abrir conexão em services connection.php
         require '../services/connection.php';
         $sql = "DELETE FROM cliente WHERE codCliente = :codCliente";

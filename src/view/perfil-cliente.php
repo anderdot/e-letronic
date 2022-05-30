@@ -52,10 +52,10 @@ $inf = $produto->selecionarPorUltimaAtualizacao($logado->getCodCliente());
     <!-- Header -->
     <header id="header">
         <nav class="container">
-            <a class="logo" href="index.html">e-<span>Letronic</span></a>
+            <a class="logo" href="home.php">e-<span>Letronic</span></a>
             <div class="menu">
                 <ul class="grid">
-                    <li><a class="title" href="../view/editar-perfil.php">Editar Perfil</a></li>
+                    <li><a class="title" href="../view/alterar-cliente.php">Editar Perfil</a></li>
                     <li><a class="title" href="sair.php">Sair</a></li>
                 </ul>
             </div>
@@ -73,7 +73,7 @@ $inf = $produto->selecionarPorUltimaAtualizacao($logado->getCodCliente());
                         <label for="inputTipo"><strong>Status</strong></label>
                         <input type="text" class="form-control" id="inputtype5" value="<?php echo $inf['nomeStatus']?>" disabled>
                         <small id="passwordHelpBlock" class="form-text text-muted">
-                            <?php $inf['alterado'] ?>
+                            <?php echo $inf['alterado'] ?>
                         </small>
                     </div>
                     <div class="form-group col-md-10">

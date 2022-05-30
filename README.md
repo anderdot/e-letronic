@@ -12,8 +12,8 @@
 - [X] Crud de clientes
   - [X] Cadastro
   - [X] Listagem
-  - [ ] Edição
-  - [ ] Exclusão
+  - [X] Edição
+  - [X] Exclusão
 - [X] Crud de empresas
   - [X] Cadastro
   - [X] Listagem

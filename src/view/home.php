@@ -52,7 +52,7 @@ if ($logado == null) {
     <!-- Header -->
     <header id="header">
         <nav class="container">
-            <a class="logo" href="index.html">e-<span>Letronic</span></a>
+            <a class="logo" href="home.php">e-<span>Letronic</span></a>
             <div class="menu">
                 <ul class="grid">
                     <?php

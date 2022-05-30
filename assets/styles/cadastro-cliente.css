@@ -26,6 +26,10 @@ nav a:hover {
     padding-top: 140px;
 }
 
+.titlered {
+    color: red;
+}
+
 form {
     width: 450px;
 }

@@ -1,3 +1,20 @@
+<?php
+include("../model/cliente.php");
+include("../model/empresa.php");
+include("../model/produto.php");
+// start a session
+session_start();
+$logado = unserialize($_SESSION['logado']);
+
+if ($logado == null) {
+    header("Location: ../view/login.php");
+}
+
+$produto = new produto();
+$produto->setCodProduto($_GET['codProduto']);
+$produto->selecionarPorCod();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -38,10 +55,10 @@
     <!-- Header -->
     <header id="header">
         <nav class="container">
-            <a class="logo" href="index.html">e-<span>Letronic</span></a>
+            <a class="logo" href="home.php">e-<span>Letronic</span></a>
             <div class="menu">
                 <ul class="grid">
-                    <li><a class="title" href="index.html">Início</a></li>
+                    <li><a class="title" href="home.php">Voltar</a></li>
                 </ul>
             </div>
             <div class="toggle icon-menu"></div>
@@ -56,14 +73,14 @@
                 <form class="mt-3">
                     <div class="form-group col-md-10">
                         <label for="inputTipo"><strong>Status</strong></label>
-                        <input type="text" class="form-control" id="inputtype5" value="Cashback enviado." disabled>
+                        <input type="text" class="form-control" id="inputtype5" value="<?php echo $produto->getNomeStatus() ?>"  disabled>
                         <small id="passwordHelpBlock" class="form-text text-muted">
-                            atualizado em 25/05/2022
+                            atualizado em <?php echo $produto->getAlterado() ?>
                         </small>
                     </div>
                     <div class="form-group col-md-10">
                         <label for="inputTipo"><strong>Cashback</strong></label>
-                        <input type="text" class="form-control" id="inputtype5" value="BRL 126,00" disabled>
+                        <input type="text" class="form-control" id="inputtype5" value="BRL <?php echo $produto->getCashback() ?>" disabled>
                     </div>
                     <div class="form-group col-md-10">
                         <img src="../../assets/images/qrcode.jpg" alt="QR Code" class="img-fluid">
@@ -73,26 +90,26 @@
                     <div class="form-row">
                         <div class="form-group col-md-12">
                             <label for="inputTipo">Tipo</label>
-                            <input type="text" class="form-control" id="inputtype5" placeholder="Smartphone">
+                            <input type="text" class="form-control" id="inputtype5" placeholder="Smartphone" value="<?php echo $produto->getTipo() ?>" >
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-12">
                             <label for="inputModelo">Modelo</label>
-                            <input type="text" class="form-control" id="inputtype4" placeholder="Samsung i7500">
+                            <input type="text" class="form-control" id="inputtype4" placeholder="Samsung i7500" value="<?php echo $produto->getModelo() ?>" >
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-12">
                             <label for="inputFuncionando">O produto está funcionando?</label>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="funcionando" id="funcionandoSim" value="sim" checked>
+                                <input class="form-check-input" type="radio" name="funcionando" id="funcionandoSim" value="sim" <?php echo $produto->getFuncionando() == 'Sim' ? 'checked' : '' ?>>
                                 <label class="form-check-label" for="funcionandoSim">
                                     Sim
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="funcionando" id="funcionandoNao" value="nao">
+                                <input class="form-check-input" type="radio" name="funcionando" id="funcionandoNao" value="nao" <?php echo $produto->getFuncionando() == 'Não' ? 'checked' : '' ?>>
                                 <label class="form-check-label" for="funcionandoNao">
                                     Não
                                 </label>
@@ -102,13 +119,13 @@
                     <div class="form-row">
                         <div class="form-group col-md-12">
                             <label for="inputTipo">Tempo de uso</label>
-                            <input type="text" class="form-control" id="inputtype4" placeholder="3 anos e 2 meses">
+                            <input type="text" class="form-control" id="inputtype4" placeholder="3 anos e 2 meses" value="<?php echo $produto->getTempoUso() ?>" >
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-12">
                             <label for="inputTipo">Descritivo</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" placeholder="Apenas rachou a tela."></textarea>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" placeholder="Apenas rachou a tela." value="<?php echo $produto->getEspecificacoes() ?>" ></textarea>
                         </div>
                     </div>
                     <div class="form-row">
@@ -117,7 +134,7 @@
                             <label class="custom-file-label" for="customFileLang">Selecionar arquivo</label>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-success button mt-3">Atualizar</button>
+                    <!-- <button type="submit" class="btn btn-success button mt-3">Atualizar</button> -->
                 </form>
             </div>
         </section>

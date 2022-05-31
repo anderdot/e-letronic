@@ -7,7 +7,10 @@ class produto {
     private $funcionando;
     private $tempoUso;
     private $especificacoes;
+    private $cashback;
+    private $alterado;
     private $codStatus;
+    private $nomeStatus;
 
     public function getCodProduto() {
         return $this->codProduto;
@@ -73,15 +76,40 @@ class produto {
         $this->codStatus = $codStatus;
     }
 
+    public function getCashback() {
+        return $this->cashback;
+    }
+
+    public function setCashback($cashback) {
+        $this->cashback = $cashback;
+    }
+
+    public function getAlterado() {
+        return $this->alterado;
+    }
+
+    public function setAlterado($alterado) {
+        $this->alterado = $alterado;
+    }
+    
+    public function setNomeStatus($nomeStatus) {
+        $this->nomeStatus = $nomeStatus;
+    }
+
+    public function getNomeStatus() {
+        return $this->nomeStatus;
+    }
+
     public function __construct() {
         $this->codProduto = 0;
         $this->tipo = "";
         $this->modelo = "";
         $this->image = "em progresso";
-        $this->funcionando = "";
+        $this->funcionando = "Sim";
         $this->tempoUso = "";
         $this->especificacoes = "";
         $this->codStatus = "1";
+        $this->nomeStatus = "Envio pendente";
     }
 
     public function cadastrarProduto() {
@@ -105,24 +133,28 @@ class produto {
     public function selecionarPorCod() {
         // abrir conexão em services connection.php
         require '../services/connection.php';
-        $sql = "SELECT * FROM produto WHERE codProduto = :codProduto";
+        $sql = "SELECT * FROM produto AS p JOIN produtoStatus AS s ON p.codStatus = s.codStatus WHERE codProduto = :codProduto";
         $stmt = $conn->prepare($sql);
         $stmt->bindValue(':codProduto', $this->codProduto);
         $stmt->execute();
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        $this->setCodProduto($result['codProduto']);
         $this->setTipo($result['tipo']);
         $this->setModelo($result['modelo']);
         $this->setImage($result['imagem']);
         $this->setFuncionando($result['funcionando']);
         $this->setTempoUso($result['tempoUso']);
         $this->setEspecificacoes($result['especificacoes']);
+        $this->setCashback($result['cashback']);
+        $this->setAlterado($result['alterado']);
         $this->setCodStatus($result['codStatus']);
+        $this->setNomeStatus($result['nomeStatus']);
     }
 
     public function selecionarPorCodCliente($codCliente) {
         // abrir conexão em services connection.php
         require '../services/connection.php';
-        $sql = "SELECT * FROM produto AS p INNER JOIN clienteProduto AS cp ON p.codProduto = cp.codProduto WHERE cp.codCliente = :codCliente";
+        $sql = "SELECT * FROM produto AS p JOIN clienteProduto AS cp ON p.codProduto = cp.codProduto WHERE cp.codCliente = :codCliente";
         $stmt = $conn->prepare($sql);
         $stmt->bindValue(':codCliente', $codCliente);
         $stmt->execute();
@@ -133,7 +165,7 @@ class produto {
     public function selecionarPorCodEmpresa($codEmpresa) {
         // abrir conexão em services connection.php
         require '../services/connection.php';
-        $sql = "SELECT * FROM produto AS p INNER JOIN empresaProduto AS ep ON p.codProduto = ep.codProduto WHERE ep.codEmpresa = :codEmpresa";
+        $sql = "SELECT * FROM produto AS p JOIN empresaProduto AS ep ON p.codProduto = ep.codProduto WHERE ep.codEmpresa = :codEmpresa";
         $stmt = $conn->prepare($sql);
         $stmt->bindValue(':codEmpresa', $codEmpresa);
         $stmt->execute();

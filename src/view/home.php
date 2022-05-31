@@ -113,7 +113,7 @@ if ($logado == null) {
                         echo '<div class="testimonial swiper-slide">
                             <blockquote>
                                 <cite>
-                                    <img src="../../assets/images/produto.jpg" alt="Foto do Produto">
+                                    <a href="visualizar-produto.php?codProduto=' . $produto['codProduto'] . '"><img src="../../assets/images/produto.jpg" alt="Foto do Produto"></a>
                                 </cite>
                                 <p>' . $produto['modelo'] . '</p>
                                 <small id="passwordHelpBlock" class="form-text text-muted">

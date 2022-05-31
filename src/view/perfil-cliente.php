@@ -73,7 +73,7 @@ $inf = $produto->selecionarPorUltimaAtualizacao($logado->getCodCliente());
                         <label for="inputTipo"><strong>Status</strong></label>
                         <input type="text" class="form-control" id="inputtype5" value="<?php echo $inf['nomeStatus']?>" disabled>
                         <small id="passwordHelpBlock" class="form-text text-muted">
-                            <?php echo $inf['alterado'] ?>
+                            Atualizado em <?php echo $inf['alterado'] ?>
                         </small>
                     </div>
                     <div class="form-group col-md-10">

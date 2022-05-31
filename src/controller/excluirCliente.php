@@ -5,7 +5,7 @@ include("../model/produto.php");
 session_start();
 $logado = unserialize($_SESSION['logado']);
 $produto = new produto();
-$produto->deletarProdutoPorCodCliente($logado->getCodCliente());
+$produto->excluirProdutoPorCodCliente($logado->getCodCliente());
 $logado->excluirLogin();
 $logado->excluirEndereco();
 $logado->excluirCliente();

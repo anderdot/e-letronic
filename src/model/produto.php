@@ -178,7 +178,7 @@ class produto {
         // abrir conexão em services connection.php
         require '../services/connection.php';
         $sql = "SELECT MAX(alterado) AS alterado, nomeStatus, cashback FROM produto AS p INNER JOIN produtoStatus AS s ON p.codStatus = s.codStatus 
-                INNER JOIN clienteProduto AS c ON p.codProduto = c.codProduto WHERE c.codCliente = :codCliente GROUP BY nomeStatus, cashback";
+                JOIN clienteProduto AS c ON p.codProduto = c.codProduto WHERE c.codCliente = :codCliente GROUP BY nomeStatus, cashback";
         $stmt = $conn->prepare($sql);
         $stmt->bindValue(':codCliente', $codCliente);
         $stmt->execute();
@@ -203,9 +203,19 @@ class produto {
         // echo '<script>alert("Produto atualizado com sucesso!");</script>';
     }
 
-    public function deletarProduto() {
+    public function excluirProduto() {
         // abrir conexão em services connection.php
         require '../services/connection.php';
+        $sql = "DELETE FROM clienteProduto WHERE codProduto = :codProduto";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindValue(':codProduto', $this->codProduto);
+        $stmt->execute();
+
+        $sql = "DELETE FROM empresaProduto WHERE codProduto = :codProduto";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindValue(':codProduto', $this->codProduto);
+        $stmt->execute();
+
         $sql = "DELETE FROM produto WHERE codProduto = :codProduto";
         $stmt = $conn->prepare($sql);
         $stmt->bindValue(':codProduto', $this->codProduto);
@@ -213,7 +223,7 @@ class produto {
         // echo '<script>alert("Produto deletado com sucesso!");</script>';
     }
 
-    public function deletarProdutoPorCodCliente($codCliente) {
+    public function excluirProdutoPorCodCliente($codCliente) {
         // abrir conexão em services connection.php
         require '../services/connection.php';
         $sql = "DELETE FROM clienteProduto WHERE codCliente = :codCliente";
@@ -223,7 +233,7 @@ class produto {
         // echo '<script>alert("Produto deletado com sucesso!");</script>';
     }
 
-    public function deletarProdutoPorCodEmpresa($codEmpresa) {
+    public function excluirProdutoPorCodEmpresa($codEmpresa) {
         // abrir conexão em services connection.php
         require '../services/connection.php';
         $sql = "DELETE FROM empresaProduto WHERE codEmpresa = :codEmpresa";

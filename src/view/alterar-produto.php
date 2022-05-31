@@ -24,7 +24,7 @@ $produto->selecionarPorCod();
 
     <!-- Primary Meta Tags -->
     <title>e-Letronic</title>
-    <meta name="title" content="Produto|e-Letronic">
+    <meta name="title" content="Cadastro de Produto|e-Letronic">
     <meta name="description" content="Reciclagem de lixo eletrônico">
 
     <!-- Styles -->
@@ -58,7 +58,7 @@ $produto->selecionarPorCod();
             <a class="logo" href="home.php">e-<span>Letronic</span></a>
             <div class="menu">
                 <ul class="grid">
-                    <li><a class="title" href="alterar-produto.php?codProduto=<?php echo $_GET['codProduto'] ?>">Editar Produto</a></li>
+                <li><a class="title" href="../controller/excluirProduto.php?codProduto=<?php echo $_GET['codProduto'] ?>">Excluir Produto</a></li>
                     <li><a class="title" href="home.php">Voltar</a></li>
                 </ul>
             </div>
@@ -71,46 +71,35 @@ $produto->selecionarPorCod();
         <!-- Home -->
         <section class="section" id="home">
             <div class="container grid">
-                <form class="mt-3">
-                    <div class="form-group col-md-10">
-                        <label for="inputTipo"><strong>Status</strong></label>
-                        <input type="text" class="form-control" id="inputtype5" value="<?php echo $produto->getNomeStatus() ?>"  disabled>
-                        <small id="passwordHelpBlock" class="form-text text-muted">
-                            Atualizado em <?php echo $produto->getAlterado() ?>
-                        </small>
-                    </div>
-                    <div class="form-group col-md-10">
-                        <label for="inputTipo"><strong>Cashback</strong></label>
-                        <input type="text" class="form-control" id="inputtype5" value="BRL <?php echo $produto->getCashback() ?>" disabled>
-                    </div>
-                    <div class="form-group col-md-10">
-                        <img src="../../assets/images/qrcode.jpg" alt="QR Code" class="img-fluid">
-                    </div>
-                </form>
-                <form class="mt-3">
+                <div class="text">
+                    <h2 class="title">Se livre dos eletrônicos antigos</h2>
+                    <p>Altere agora o produto, e após o envio e analises de especialistas, receba <a href="#">um cashback</a>.</p>
+                </div>
+
+                <form action="../controller/alterarProduto.php" method="post" class="mt-3">
                     <div class="form-row">
                         <div class="form-group col-md-12">
                             <label for="inputTipo">Tipo</label>
-                            <input type="text" class="form-control" id="inputtype5" placeholder="Smartphone" value="<?php echo $produto->getTipo() ?>" disabled>
+                            <input type="text" name="tipo" class="form-control" id="inputtype5" placeholder="Smartphone" value="<?php echo $produto->getTipo() ?>">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-12">
                             <label for="inputModelo">Modelo</label>
-                            <input type="text" class="form-control" id="inputtype4" placeholder="Samsung i7500" value="<?php echo $produto->getModelo() ?>" disabled>
+                            <input type="text" name="modelo" class="form-control" id="inputtype4" placeholder="Samsung i7500" value="<?php echo $produto->getModelo() ?>">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-12">
                             <label for="inputFuncionando">O produto está funcionando?</label>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="funcionando" id="funcionandoSim" value="sim" <?php echo $produto->getFuncionando() == 'Sim' ? 'checked' : '' ?> disabled>
+                                <input type="radio" name="funcionandoSim" class="form-check-input" id="funcionandoSim" value="sim" <?php echo $produto->getFuncionando() == 'Sim' ? 'checked' : '' ?>>
                                 <label class="form-check-label" for="funcionandoSim">
                                     Sim
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="funcionando" id="funcionandoNao" value="nao" <?php echo $produto->getFuncionando() == 'Não' ? 'checked' : '' ?> disabled>
+                                <input type="radio" name="funcionandoNão" class="form-check-input" id="funcionandoNao" value="nao" <?php echo $produto->getFuncionando() == 'Não' ? 'checked' : '' ?>>
                                 <label class="form-check-label" for="funcionandoNao">
                                     Não
                                 </label>
@@ -120,22 +109,24 @@ $produto->selecionarPorCod();
                     <div class="form-row">
                         <div class="form-group col-md-12">
                             <label for="inputTipo">Tempo de uso</label>
-                            <input type="text" class="form-control" id="inputtype4" placeholder="3 anos e 2 meses" value="<?php echo $produto->getTempoUso() ?>" disabled>
+                            <input type="text" name="tempoUso" class="form-control" id="inputtype4" placeholder="3 anos e 2 meses" value="<?php echo $produto->getTempoUso() ?>">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-12">
                             <label for="inputTipo">Descritivo</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" placeholder="Apenas rachou a tela." value="<?php echo $produto->getEspecificacoes() ?>" disabled></textarea>
+                            <textarea name="descritivo" class="form-control" id="exampleFormControlTextarea1" rows="4" placeholder="Apenas rachou a tela." value="<?php echo $produto->getEspecificacoes() ?>"></textarea>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="custom-file form-group col-md-12">
-                            <input type="file" class="custom-file-input" id="customFileLang" lang="pt-br" disabled>
+                            <input type="file" class="custom-file-input" id="customFileLang" lang="pt-br">
                             <label class="custom-file-label" for="customFileLang">Selecionar arquivo</label>
                         </div>
                     </div>
-                    <!-- <button type="submit" class="btn btn-success button mt-3">Atualizar</button> -->
+                    <!-- campo do tipo text invisible para enviar o codProduto -->
+                    <input type="text" name="codProduto" value="<?php echo $produto->getCodProduto() ?>" hidden>
+                    <button type="submit" class="btn btn-success button mt-3">Atualizar</button>
                 </form>
             </div>
         </section>

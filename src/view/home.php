@@ -115,7 +115,7 @@ if ($logado == null) {
                                 <cite>
                                     <a href="visualizar-produto.php?codProduto=' . $produto['codProduto'] . '"><img src="../../assets/images/produto.jpg" alt="Foto do Produto"></a>
                                 </cite>
-                                <p>' . $produto['modelo'] . '</p>
+                                <p>' . $produto['tipo'] . ' | ' . $produto['modelo'] . ' | Uso: ' . $produto['tempoUso'] . '</p>
                                 <small id="passwordHelpBlock" class="form-text text-muted">
                                     ' . $produto['alterado'] . '
                                 </small>

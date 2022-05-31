@@ -5,7 +5,7 @@
 - [X] Tela de cadastro de empresas
 - [X] Tela de login
 - [X] Tela de cadastro de produtos
-- [ ] Tela de visualizar produtos
+- [X] Tela de visualizar produtos
 - [X] Tela de perfil
 
 ## Back-end
@@ -19,11 +19,11 @@
   - [X] Listagem
   - [X] Edição
   - [X] Exclusão
-- [ ] Crud de produtos
+- [X] Crud de produtos
   - [X] Cadastro
   - [X] Listagem
-  - [ ] Edição
-  - [ ] Exclusão
+  - [X] Edição
+  - [X] Exclusão
 - [ ] Login com session nas paginas
 
 ## Banco

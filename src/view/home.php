@@ -10,7 +10,6 @@ if ($logado == null) {
     header("Location: ../view/login.php");
 }
 
-
 ?>
 
 <!DOCTYPE html>

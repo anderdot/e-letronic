@@ -18,7 +18,7 @@ if ($logado == null) {
 
     <!-- Primary Meta Tags -->
     <title>e-Letronic</title>
-    <meta name="title" content="Cadastro de Cliente|e-Letronic">
+    <meta name="title" content="Alterar Cliente|e-Letronic">
     <meta name="description" content="Reciclagem de lixo eletrônico">
 
     <!-- Styles -->

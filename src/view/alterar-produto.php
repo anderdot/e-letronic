@@ -24,7 +24,7 @@ $produto->selecionarPorCod();
 
     <!-- Primary Meta Tags -->
     <title>e-Letronic</title>
-    <meta name="title" content="Cadastro de Produto|e-Letronic">
+    <meta name="title" content="Alterar Produto|e-Letronic">
     <meta name="description" content="Reciclagem de lixo eletrônico">
 
     <!-- Styles -->

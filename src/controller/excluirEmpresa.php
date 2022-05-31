@@ -4,7 +4,7 @@ include("../model/empresa.php");
 session_start();
 $logado = unserialize($_SESSION['logado']);
 $produto = new produto();
-$produto->deletarProdutoPorCodEmpresa($logado->getCodEmpresa());
+$produto->excluirProdutoPorCodEmpresa($logado->getCodEmpresa());
 $logado->excluirLogin();
 $logado->excluirEndereco();
 $logado->excluirEmpresa();

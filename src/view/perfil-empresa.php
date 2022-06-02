@@ -54,7 +54,7 @@ if ($logado == null) {
             <div class="menu">
                 <ul class="grid">
                     <li><a class="title" href="../view/alterar-empresa.php">Editar Perfil</a></li>
-                    <li><a class="title" href="sair.php">Sair</a></li>
+                    <li><a class="title" href="../controller/sair.php">Sair</a></li>
                 </ul>
             </div>
             <div class="toggle icon-menu"></div>

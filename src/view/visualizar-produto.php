@@ -58,7 +58,11 @@ $produto->selecionarPorCod();
             <a class="logo" href="home.php">e-<span>Letronic</span></a>
             <div class="menu">
                 <ul class="grid">
-                    <li><a class="title" href="alterar-produto.php?codProduto=<?php echo $_GET['codProduto'] ?>">Editar Produto</a></li>
+                    <?php
+                    if ($logado->getTipo() == "cliente") {
+                        echo '<li><a class="title" href="alterar-produto.php?codProduto=' . $_GET['codProduto'] . '">Editar Produto</a></li>';
+                    }
+                    ?>
                     <li><a class="title" href="home.php">Voltar</a></li>
                 </ul>
             </div>

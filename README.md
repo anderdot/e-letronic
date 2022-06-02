@@ -1,3 +1,14 @@
+# Tecnologias usadas no Front
+-	Swiper Bundle
+-	Scroll Reveal
+-	Bootstrap
+- JavaScript e JQuery
+
+# Tecnologias usadas no Back
+- PHP
+- PDO
+- MySQL
+
 # Andamento do site
 ## Front-end
 - [X] Home

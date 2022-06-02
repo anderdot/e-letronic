@@ -56,7 +56,7 @@ $inf = $produto->selecionarPorUltimaAtualizacao($logado->getCodCliente());
             <div class="menu">
                 <ul class="grid">
                     <li><a class="title" href="../view/alterar-cliente.php">Editar Perfil</a></li>
-                    <li><a class="title" href="sair.php">Sair</a></li>
+                    <li><a class="title" href="../controller/sair.php">Sair</a></li>
                 </ul>
             </div>
             <div class="toggle icon-menu"></div>

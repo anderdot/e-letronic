@@ -10,6 +10,8 @@
 - MySQL
 
 # Andamento do site
+
+
 ## Front-end
 - [X] Home
 - [X] Tela de cadastro de clientes

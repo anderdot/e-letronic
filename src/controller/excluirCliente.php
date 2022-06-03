@@ -1,7 +1,6 @@
 <?php
 include("../model/cliente.php");
 include("../model/produto.php");
-// start a session
 session_start();
 $logado = unserialize($_SESSION['logado']);
 $produto = new produto();

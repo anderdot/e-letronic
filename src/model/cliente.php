@@ -1,6 +1,7 @@
 <?php
 require_once 'endereco.php';
-class cliente extends endereco {
+class cliente extends endereco
+{
     private $codCliente;
     private $nome;
     private $sobrenome;
@@ -8,56 +9,68 @@ class cliente extends endereco {
     private $cpf;
     private $telefone;
 
-    public function getCodCliente() {
+    public function getCodCliente()
+    {
         return $this->codCliente;
     }
 
-    public function setCodCliente($codCliente) {
+    public function setCodCliente($codCliente)
+    {
         $this->codCliente = $codCliente;
     }
 
-    public function getNome() {
+    public function getNome()
+    {
         return $this->nome;
     }
 
-    public function setNome($nome) {
+    public function setNome($nome)
+    {
         $this->nome = trim($nome);
     }
 
-    public function getSobrenome() {
+    public function getSobrenome()
+    {
         return $this->sobrenome;
     }
 
-    public function setSobrenome($sobrenome) {
+    public function setSobrenome($sobrenome)
+    {
         $this->sobrenome = trim($sobrenome);
     }
 
-    public function getDataNascimento() {
+    public function getDataNascimento()
+    {
         return implode('/', array_reverse(explode('-', $this->dataNascimento)));
     }
 
-    public function setDataNascimento($dataNascimento) {
+    public function setDataNascimento($dataNascimento)
+    {
         $this->dataNascimento = implode('-', array_reverse(explode('/', $dataNascimento)));
     }
 
-    public function getCpf() {
+    public function getCpf()
+    {
         return $this->cpf;
     }
 
-    public function setCpf($cpf) {
+    public function setCpf($cpf)
+    {
         $this->cpf = preg_replace('/[^0-9]/', '', $cpf);
     }
 
-    public function getTelefone() {
+    public function getTelefone()
+    {
         return $this->telefone;
     }
 
-    public function setTelefone($telefone) {
+    public function setTelefone($telefone)
+    {
         $this->telefone = preg_replace('/[^0-9]/', '', $telefone);
     }
 
-    // construtor vazio
-    public function __construct() {
+    public function __construct()
+    {
         $this->codCliente = 0;
         $this->nome = "";
         $this->sobrenome = "";
@@ -66,8 +79,8 @@ class cliente extends endereco {
         $this->telefone = "";
     }
 
-    public function cadastrarCliente() {
-        // abrir conexão em services connection.php
+    public function cadastrarCliente()
+    {
         require '../services/connection.php';
         $sql = "INSERT INTO cliente (nome, sobrenome, dataNascimento, cpf, telefone, codEndereco, codLogin) 
                              VALUES (:nome, :sobrenome, :dataNascimento, :cpf, :telefone, :codEndereco, :codLogin)";
@@ -81,11 +94,10 @@ class cliente extends endereco {
         $stmt->bindParam(":codLogin", $this->codLogin);
         $stmt->execute();
         $this->setCodCliente($conn->lastInsertId());
-        // echo "Cliente cadastrado com sucesso! Código: " . $this->getCodCliente() . "<br>";
     }
 
-    public function selecionarPorCod() {
-        // abrir conexão em services connection.php
+    public function selecionarPorCod()
+    {
         require '../services/connection.php';
         $sql = "SELECT * FROM `cliente` AS C
             INNER JOIN `endereco` AS E
@@ -101,8 +113,8 @@ class cliente extends endereco {
         return $result;
     }
 
-    public function selecionarPorEmailSenha() {
-        // abrir conexão em services connection.php
+    public function selecionarPorEmailSenha()
+    {
         require '../services/connection.php';
         $sql = "SELECT * FROM `cliente` AS C
             INNER JOIN `endereco` AS E
@@ -137,8 +149,8 @@ class cliente extends endereco {
         $this->setTipo($result['tipo']);
     }
 
-    public function alterarCliente() {
-        // abrir conexão em services connection.php
+    public function alterarCliente()
+    {
         require '../services/connection.php';
         $sql = "UPDATE cliente SET nome = :nome, sobrenome = :sobrenome, dataNascimento = :dataNascimento, cpf = :cpf, telefone = :telefone, 
                                    codEndereco = :codEndereco, codLogin = :codLogin WHERE codCliente = :codCliente";
@@ -152,16 +164,14 @@ class cliente extends endereco {
         $stmt->bindParam(":codLogin", $this->codLogin);
         $stmt->bindParam(":codCliente", $this->codCliente);
         $stmt->execute();
-        // echo "Cliente atualizado com sucesso! Código: " . $this->getCodCliente() . "<br>";
     }
 
-    public function excluirCliente() {
-        // abrir conexão em services connection.php
+    public function excluirCliente()
+    {
         require '../services/connection.php';
         $sql = "DELETE FROM cliente WHERE codCliente = :codCliente";
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(":codCliente", $this->codCliente);
         $stmt->execute();
-        // echo "Cliente deletado com sucesso! Código: " . $this->getCodCliente() . "<br>";
     }
 }

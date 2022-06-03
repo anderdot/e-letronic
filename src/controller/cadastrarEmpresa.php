@@ -1,23 +1,18 @@
 <?php
-// verificar com foreach os campos do formulário com empty
-// se estiverem vazios, então exibir mensagem de erro
-
-foreach ($_POST as $key => $value){
-    if (empty($value)){
+foreach ($_POST as $key => $value) {
+    if (empty($value)) {
         echo '<script>alert("Preencha todos os campos!");</script>';
         echo '<script>location.href="../view/cadastro-empresa.html";</script>';
     }
 }
 
-// verificar senha e confirmar senha
-if ($_POST['senha'] != $_POST['confirmarSenha']){
+if ($_POST['senha'] != $_POST['confirmarSenha']) {
     echo '<script>alert("Senhas não conferem!");</script>';
     echo '<script>location.href="../view/cadastro-empresa.html";</script>';
 }
 
 include '../model/empresa.php';
 $empresa = new empresa();
-
 $empresa->setRazaoSocial($_POST['razaoSocial']);
 $empresa->setEmail($_POST['email']);
 $empresa->setTelefone($_POST['telefone']);
@@ -32,7 +27,6 @@ $empresa->setEstado($_POST['estado']);
 $empresa->setSenha($_POST['senha']);
 $empresa->setTipo('empresa');
 
-// verificar se trouxe algum resultado, caso sim, exibir mensagem de já existe
 if ($empresa->selecionarEmail() > 0) {
     echo '<script>alert("Email já cadastrado!");</script>';
     echo '<script>location.href="../view/cadastro-empresa.html";</script>';
@@ -43,4 +37,3 @@ if ($empresa->selecionarEmail() > 0) {
     echo '<script>alert("Empresa inserido com sucesso!");</script>';
     echo '<script>location.href="../view/entrar.html";</script>';
 }
-?>

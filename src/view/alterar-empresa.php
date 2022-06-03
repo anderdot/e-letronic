@@ -1,6 +1,5 @@
 <?php
 include("../model/empresa.php");
-// start a session
 session_start();
 $logado = unserialize($_SESSION['logado']);
 
@@ -15,12 +14,10 @@ if ($logado == null) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Primary Meta Tags -->
     <title>e-Letronic</title>
     <meta name="title" content="Alterar Aliado|e-Letronic">
     <meta name="description" content="Reciclagem de lixo eletrônico">
 
-    <!-- Styles -->
     <link rel="stylesheet" href="../../libs/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="../../assets/styles/style.css">
@@ -28,15 +25,12 @@ if ($logado == null) {
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.pt-BR.min.js"></script>
 
-    <!-- Icons (icomoon.io) -->
     <link rel="stylesheet" href="../../assets/fonts/style.css">
 
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap">
 
-    <!-- Favicons -->
     <link rel="shortcut icon" href="../../assets/favicon.ico" type="image/x-icon">
     <link rel="icon" href="../../assets/favicon.ico" type="image/x-icon">
     <meta name="msapplication-TileColor" content="#69B99D">
@@ -45,7 +39,6 @@ if ($logado == null) {
 </head>
 
 <body>
-    <!-- Header -->
     <header id="header">
         <nav class="container">
             <a class="logo" href="home.php">e-<span>Letronic</span></a>
@@ -61,7 +54,6 @@ if ($logado == null) {
     </header>
 
     <main>
-        <!-- Home -->
         <section class="section" id="home">
             <div class="container grid">
                 <div class="text">
@@ -90,7 +82,7 @@ if ($logado == null) {
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="cnpj">CNPJ</label>
-                            <input type="text" name="cnpj" oninput="mascaraCnpj(this)" class="form-control" id="cnpj" placeholder="36.221.010/0001-16" value="<?php echo $logado->getCnpj() ?>"required>
+                            <input type="text" name="cnpj" oninput="mascaraCnpj(this)" class="form-control" id="cnpj" placeholder="36.221.010/0001-16" value="<?php echo $logado->getCnpj() ?>" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="estadual">I.E</label>
@@ -110,7 +102,7 @@ if ($logado == null) {
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label for="typeNumber">Número</label>
-                            <input type="text" name="numero" class="form-control" id="typeNumber" placeholder="3301" value="<?php echo $logado->getNumero() ?>"required>
+                            <input type="text" name="numero" class="form-control" id="typeNumber" placeholder="3301" value="<?php echo $logado->getNumero() ?>" required>
                         </div>
                         <div class="form-group col-md-8">
                             <label for="inputAddress2">Complemento</label>
@@ -169,11 +161,8 @@ if ($logado == null) {
 
 <a href="#home" class="back-to-top"><i class="icon-arrow-up"></i></a>
 
-<!-- Swiper / Scroll -->
 <script src="../../libs/swiper-bundle.min.js"></script>
-<!-- Scroll Reveal -->
 <script src="../../libs/scrollreveal.min.js"></script>
-<!-- Scripts -->
 <script src="main.js"></script>
 
 </html>

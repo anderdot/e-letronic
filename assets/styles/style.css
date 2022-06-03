@@ -1,5 +1,3 @@
-/* Reset CSS */
-
 * {
     margin: 0;
     padding: 0;
@@ -19,14 +17,9 @@ img {
     height: auto;
 }
 
-
-/* Root / Variáveis */
-
 :root {
     --header-height: 4.5rem;
-    /* colors */
     --hue: 159;
-    /* HSL color mode */
     --base-color: hsl(var(--hue) 36% 57%);
     --base-color-second: hsl(var(--hue) 65% 88%);
     --base-color-alt: hsl(var(--hue) 57% 53%);
@@ -34,15 +27,11 @@ img {
     --text-color: hsl(0 0% 46%);
     --text-color-light: hsl(0 0% 98%);
     --body-color: hsl(0 0% 98%);
-    /* fonts */
     --title-font-size: 1.875rem;
     --subtitle-font-size: 1rem;
     --title-font: "Poppins", sans-serif;
     --body-font: "DM Sans", sans-serif;
 }
-
-
-/* Base */
 
 html {
     scroll-behavior: smooth;
@@ -79,16 +68,13 @@ body {
 
 .divider-1 {
     height: 1px;
-    background: linear-gradient( 270deg, hsla(var(--hue), 36%, 57%, 1), hsla(var(--hue), 65%, 88%, 0.34));
+    background: linear-gradient(270deg, hsla(var(--hue), 36%, 57%, 1), hsla(var(--hue), 65%, 88%, 0.34));
 }
 
 .divider-2 {
     height: 1px;
-    background: linear-gradient( 270deg, hsla(var(--hue), 65%, 88%, 0.34), hsla(var(--hue), 36%, 57%, 1));
+    background: linear-gradient(270deg, hsla(var(--hue), 65%, 88%, 0.34), hsla(var(--hue), 36%, 57%, 1));
 }
-
-
-/* Layout */
 
 .container {
     margin-left: 1.5rem;
@@ -132,9 +118,6 @@ body {
     width: 100%;
 }
 
-
-/* Logo */
-
 .logo {
     font: 700 1.31rem var(--title-font);
     color: var(--title-color);
@@ -148,12 +131,7 @@ body {
     color: var(--body-color);
 }
 
-
-/* Navigation */
-
 nav {
-    /* altura: 72px / 16px = 4.5 --- conversão de pixel p/ unidade relativa/responsiva (rem) */
-    /* 16px é o padrão do browser / root: font-size 100% */
     height: var(--header-height);
     display: flex;
     align-items: center;
@@ -183,9 +161,6 @@ nav ul li a.active {
     color: var(--base-color);
 }
 
-
-/* Linha em baixo do menu */
-
 nav ul li a::after {
     content: "";
     width: 0%;
@@ -205,9 +180,6 @@ nav ul li a.active::after {
 nav .menu ul {
     display: none;
 }
-
-
-/* Mostrar menu */
 
 nav.show .menu {
     opacity: 1;
@@ -230,9 +202,6 @@ nav.show ul.grid {
     gap: 4rem;
 }
 
-
-/* Toggle Menu */
-
 .toggle {
     color: var(--base-color);
     font-size: 1.5rem;
@@ -253,9 +222,6 @@ nav.show div.icon-close {
     opacity: 1;
     top: 1.5rem;
 }
-
-
-/* Home */
 
 #home {
     overflow: hidden;
@@ -304,9 +270,6 @@ nav.show div.icon-close {
     margin-bottom: 2rem;
 }
 
-
-/* About */
-
 #about {
     background: white;
 }
@@ -352,9 +315,6 @@ nav.show div.icon-close {
     margin-bottom: 2rem;
 }
 
-
-/* Services */
-
 .cards.grid {
     gap: 1.5rem;
 }
@@ -378,9 +338,6 @@ nav.show div.icon-close {
     font-size: 1.5rem;
     margin-bottom: 0.75rem;
 }
-
-
-/* Testimonials */
 
 #testimonials {
     background: white;
@@ -433,9 +390,6 @@ nav.show div.icon-close {
     margin-right: 0.5rem;
 }
 
-
-/* swiper */
-
 .swiper-slide {
     height: auto;
     padding: 4rem 1rem;
@@ -444,9 +398,6 @@ nav.show div.icon-close {
 .swiper-pagination-bullet-active {
     background: var(--base-color);
 }
-
-
-/* Contact */
 
 #contact .grid {
     gap: 4rem;
@@ -474,9 +425,6 @@ nav.show div.icon-close {
 #contact ul li i {
     color: var(--base-color);
 }
-
-
-/* Footer */
 
 footer {
     background: var(--base-color);
@@ -512,9 +460,6 @@ footer .social a:hover {
     transform: translateY(-8px);
 }
 
-
-/* Back to top */
-
 .back-to-top {
     background: var(--base-color-second);
     color: var(--base-color);
@@ -538,21 +483,17 @@ footer .social a:hover {
 }
 
 
-/* Responsividade-Breakpoints */
-
-
-/* Config p/ dispositivos maiores que 1200px */
-
 @media (min-width: 1200px) {
-    /* Classes globais */
     .container {
         max-width: 1120px;
         margin-left: auto;
         margin-right: auto;
     }
+
     .section {
         padding: 10rem 0;
     }
+
     .section header,
     #testimonials header {
         max-width: 30rem;
@@ -560,43 +501,50 @@ footer .social a:hover {
         margin-left: auto;
         margin-right: auto;
     }
+
     .button {
         height: 3.125rem;
     }
-    /* Navegação */
+
     nav .menu {
         opacity: 1;
         visibility: visible;
         top: 0;
     }
+
     nav .menu ul {
         display: flex;
         gap: 2rem;
     }
+
     nav .menu ul li a.title {
         font: 400 1rem var(--body-font);
         -webkit-font-smoothing: antialiased;
     }
+
     nav .menu ul li a.title.active {
         font-weight: bold;
         -webkit-font-smoothing: auto;
     }
+
     nav .icon-menu {
         display: none;
     }
-    /* Main */
+
     main {
         margin-top: var(--header-height);
     }
-    /* Home */
+
     #home .container {
         grid-auto-flow: column;
         justify-content: space-between;
         margin: 0 auto;
     }
+
     #home .image {
         order: 1;
     }
+
     #home .text {
         order: 0;
         max-width: 24rem;
@@ -604,73 +552,79 @@ footer .social a:hover {
         margin-left: 0;
         margin-right: 4rem;
     }
+
     #home .image img {
         right: 0;
     }
-    /* Mudanças no header ao fazer scroll */
+
     #header.scroll {
         background: var(--base-color);
         box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1);
         transition: background 0.2s;
         border-bottom: none;
     }
+
     #header.scroll .logo span {
         color: white;
     }
+
     #header.scroll .icon-menu {
         color: white;
     }
+
     #header.scroll nav ul li a {
         color: white;
     }
+
     #header.scroll nav ul li a::after {
         background: white;
     }
-    /* About */
+
     #about .container {
         margin: 0 auto;
         grid-auto-flow: column;
     }
-    /* Services */
+
     .cards {
         grid-template-columns: 1fr 1fr 1fr;
     }
+
     .card {
         padding-right: 3rem;
         padding-left: 3rem;
     }
-    /* Testimonials */
+
     #testimonials .container {
         margin-left: auto;
         margin-right: auto;
     }
-    /* Contact */
+
     #contact .container {
         grid-auto-flow: column;
         align-items: center;
     }
+
     #contact .text {
         max-width: 23rem;
     }
-    /* Footer */
+
     footer.section {
         padding: 3.75rem 0;
     }
+
     footer .container {
         grid-auto-flow: column;
         align-items: center;
         justify-content: space-between;
     }
+
     footer .logo {
         font-size: 2rem;
     }
 }
 
-
-/* Dispositivos maiores que 992px */
-
 @media (min-width: 992px) {
-     :root {
+    :root {
         --title-font-size: 2.25rem;
         --subtitle-font-size: 1.125rem;
     }

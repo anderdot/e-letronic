@@ -1,31 +1,8 @@
--- phpMyAdmin SQL Dump
--- version 5.1.1
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Tempo de geração: 26-Maio-2022 às 16:14
--- Versão do servidor: 10.4.21-MariaDB
--- versão do PHP: 7.3.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Banco de dados: `eletronic-backup`
---
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `cliente`
---
 
 CREATE TABLE `cliente` (
   `codCliente` int(11) NOT NULL,
@@ -38,23 +15,12 @@ CREATE TABLE `cliente` (
   `codLogin` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `clienteproduto`
---
 
 CREATE TABLE `clienteproduto` (
   `codVenda` int(11) NOT NULL,
   `codCliente` int(11) NOT NULL,
   `codProduto` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `empresa`
---
 
 CREATE TABLE `empresa` (
   `codEmpresa` int(11) NOT NULL,
@@ -66,23 +32,12 @@ CREATE TABLE `empresa` (
   `codLogin` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `empresaproduto`
---
 
 CREATE TABLE `empresaproduto` (
   `codVenda` int(11) NOT NULL,
   `codProduto` int(11) NOT NULL,
   `codEmpresa` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `endereco`
---
 
 CREATE TABLE `endereco` (
   `codEndereco` int(11) NOT NULL,
@@ -94,11 +49,6 @@ CREATE TABLE `endereco` (
   `estado` varchar(100) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `login`
---
 
 CREATE TABLE `login` (
   `codLogin` int(11) NOT NULL,
@@ -106,12 +56,6 @@ CREATE TABLE `login` (
   `senha` varchar(100) NOT NULL,
   `tipo` enum('cliente','empresa') NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `produto`
---
 
 CREATE TABLE `produto` (
   `codProduto` int(11) NOT NULL,
@@ -125,146 +69,81 @@ CREATE TABLE `produto` (
   `codStatus` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `produtostatus`
---
-
 CREATE TABLE `produtostatus` (
   `codStatus` int(11) NOT NULL,
   `nomeStatus` varchar(50) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
---
--- Índices para tabelas despejadas
---
-
---
--- Índices para tabela `cliente`
---
 ALTER TABLE `cliente`
   ADD PRIMARY KEY (`codCliente`),
   ADD KEY `FK_endereco_cliente` (`codEndereco`),
   ADD KEY `FK_login_cliente` (`codLogin`);
 
---
--- Índices para tabela `clienteproduto`
---
+
 ALTER TABLE `clienteproduto`
   ADD PRIMARY KEY (`codVenda`);
 
---
--- Índices para tabela `empresa`
---
+
 ALTER TABLE `empresa`
   ADD PRIMARY KEY (`codEmpresa`),
   ADD KEY `FK_endereco_empresa` (`codEndereco`),
   ADD KEY `FK_login_empresa` (`codLogin`);
 
---
--- Índices para tabela `empresaproduto`
---
+
 ALTER TABLE `empresaproduto`
   ADD PRIMARY KEY (`codVenda`);
 
---
--- Índices para tabela `endereco`
---
+
 ALTER TABLE `endereco`
   ADD PRIMARY KEY (`codEndereco`);
 
---
--- Índices para tabela `login`
---
+
 ALTER TABLE `login`
   ADD PRIMARY KEY (`codLogin`),
   ADD KEY `email_fk` (`email`);
 
---
--- Índices para tabela `produto`
---
+
 ALTER TABLE `produto`
   ADD PRIMARY KEY (`codProduto`),
   ADD KEY `cod_status_fk` (`codStatus`);
 
---
--- Índices para tabela `produtostatus`
---
+
 ALTER TABLE `produtostatus`
   ADD PRIMARY KEY (`codStatus`);
 
---
--- AUTO_INCREMENT de tabelas despejadas
---
 
---
--- AUTO_INCREMENT de tabela `cliente`
---
 ALTER TABLE `cliente`
   MODIFY `codCliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
---
--- AUTO_INCREMENT de tabela `clienteproduto`
---
+
 ALTER TABLE `clienteproduto`
   MODIFY `codVenda` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT de tabela `empresa`
---
 ALTER TABLE `empresa`
   MODIFY `codEmpresa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
---
--- AUTO_INCREMENT de tabela `empresaproduto`
---
+
 ALTER TABLE `empresaproduto`
   MODIFY `codVenda` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT de tabela `endereco`
---
 ALTER TABLE `endereco`
   MODIFY `codEndereco` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
---
--- AUTO_INCREMENT de tabela `login`
---
+
 ALTER TABLE `login`
   MODIFY `codLogin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
---
--- AUTO_INCREMENT de tabela `produto`
---
 ALTER TABLE `produto`
   MODIFY `codProduto` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT de tabela `produtostatus`
---
 ALTER TABLE `produtostatus`
   MODIFY `codStatus` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- Restrições para despejos de tabelas
---
-
---
--- Limitadores para a tabela `cliente`
---
 ALTER TABLE `cliente`
   ADD CONSTRAINT `FK_endereco_cliente` FOREIGN KEY (`codEndereco`) REFERENCES `endereco` (`codEndereco`),
   ADD CONSTRAINT `FK_login_cliente` FOREIGN KEY (`codLogin`) REFERENCES `login` (`codLogin`);
 
---
--- Limitadores para a tabela `empresa`
---
 ALTER TABLE `empresa`
   ADD CONSTRAINT `FK_endereco_empresa` FOREIGN KEY (`codEndereco`) REFERENCES `endereco` (`codEndereco`),
   ADD CONSTRAINT `FK_login_empresa` FOREIGN KEY (`codLogin`) REFERENCES `login` (`codLogin`);
 COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

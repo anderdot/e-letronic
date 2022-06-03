@@ -1,25 +1,21 @@
 <?php
-// verificar com foreach os campos do formulário com empty
-// se estiverem vazios, então exibir mensagem de erro
 
-foreach ($_POST as $key => $value){
-    if (empty($value)){
+foreach ($_POST as $key => $value) {
+    if (empty($value)) {
         echo '<script>alert("Preencha todos os campos!");</script>';
         echo '<script>location.href="../view/alterar-cliente.html";</script>';
     }
 }
 
-// verificar senha e confirmar senha
-if ($_POST['novaSenha'] != $_POST['confirmarNovaSenha']){
+if ($_POST['novaSenha'] != $_POST['confirmarNovaSenha']) {
     echo '<script>alert("Senhas não conferem!");</script>';
     echo '<script>location.href="../view/alterar-cliente.html";</script>';
 }
 
 include("../model/cliente.php");
-// start a session
+
 session_start();
 $logado = unserialize($_SESSION['logado']);
-
 $logado->setNome($_POST['nome']);
 $logado->setSobrenome($_POST['sobrenome']);
 $logado->setEmail($_POST['email']);

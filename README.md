@@ -36,7 +36,7 @@
   - [X] Exclusion
 -   [X] Login with session
 
-## Banco
+## Database
 - [X] Create Database
 - [X] Create adress table
 - [X] Create login table

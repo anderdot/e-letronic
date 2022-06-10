@@ -1,7 +1,4 @@
 <?php
-// verificar com foreach os campos do formulário com empty
-// se estiverem vazios, então exibir mensagem de erro
-
 foreach ($_POST as $key => $value){
     if (empty($value)){
         echo '<script>alert("Preencha todos os campos!");</script>';
@@ -9,7 +6,6 @@ foreach ($_POST as $key => $value){
     }
 }
 
-// verificar senha e confirmar senha
 if ($_POST['senha'] != $_POST['confirmarSenha']){
     echo '<script>alert("Senhas não conferem!");</script>';
     echo '<script>location.href="../view/cadastro-cliente.html";</script>';
@@ -17,7 +13,6 @@ if ($_POST['senha'] != $_POST['confirmarSenha']){
 
 include '../model/cliente.php';
 $cliente = new cliente();
-
 $cliente->setNome($_POST['nome']);
 $cliente->setSobrenome($_POST['sobrenome']);
 $cliente->setEmail($_POST['email']);
@@ -33,7 +28,6 @@ $cliente->setEstado($_POST['estado']);
 $cliente->setSenha($_POST['senha']);
 $cliente->setTipo('cliente');
 
-// verificar se trouxe algum resultado, caso sim, exibir mensagem de já existe
 if ($cliente->selecionarEmail() > 0) {
     echo '<script>alert("Email já cadastrado!");</script>';
     echo '<script>location.href="../view/cadastro-cliente.html";</script>';

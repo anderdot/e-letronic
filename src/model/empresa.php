@@ -1,54 +1,65 @@
 <?php
 require_once 'endereco.php';
-class empresa extends endereco {
+class empresa extends endereco
+{
     private $codEmpresa;
     private $razaoSocial;
     private $telefone;
     private $cnpj;
     private $ie;
 
-    public function getCodEmpresa() {
+    public function getCodEmpresa()
+    {
         return $this->codEmpresa;
     }
 
-    public function setCodEmpresa($codEmpresa) {
+    public function setCodEmpresa($codEmpresa)
+    {
         $this->codEmpresa = $codEmpresa;
     }
 
-    public function getRazaoSocial() {
+    public function getRazaoSocial()
+    {
         return $this->razaoSocial;
     }
 
-    public function setRazaoSocial($razaoSocial) {
+    public function setRazaoSocial($razaoSocial)
+    {
         $this->razaoSocial = trim($razaoSocial);
     }
 
-    public function getTelefone() {
+    public function getTelefone()
+    {
         return $this->telefone;
     }
 
-    public function setTelefone($telefone) {
+    public function setTelefone($telefone)
+    {
         $this->telefone = preg_replace('/[^0-9]/', '', $telefone);
     }
 
-    public function getCnpj() {
+    public function getCnpj()
+    {
         return $this->cnpj;
     }
 
-    public function setCnpj($cnpj) {
+    public function setCnpj($cnpj)
+    {
         $this->cnpj = preg_replace('/[^0-9]/', '', $cnpj);
     }
 
-    public function getIe() {
+    public function getIe()
+    {
         return $this->ie;
     }
 
-    public function setIe($ie) {
+    public function setIe($ie)
+    {
         $this->ie = preg_replace('/[^0-9]/', '', $ie);
     }
 
-    // construtor vazio
-    public function __construct() {
+    public function __construct()
+    {
         $this->codEmpresa = 0;
         $this->razaoSocial = "";
         $this->telefone = "";
@@ -56,8 +67,8 @@ class empresa extends endereco {
         $this->ie = "";
     }
 
-    public function cadastrarEmpresa() {
-        // abrir conexão em services connection.php
+    public function cadastrarEmpresa()
+    {
         require '../services/connection.php';
         $sql = "INSERT INTO empresa (razaoSocial, telefone, cnpj, ie, codEndereco, codLogin) 
                              VALUES (:razaoSocial, :telefone, :cnpj, :ie, :codEndereco, :codLogin)";
@@ -70,11 +81,10 @@ class empresa extends endereco {
         $stmt->bindValue(':codLogin', $this->codLogin);
         $stmt->execute();
         $this->setCodEmpresa($conn->lastInsertId());
-        // echo "Empresa cadastrada com sucesso! Codigo: " . $this->getCodEmpresa() . "<br>";
     }
 
-    public function selecionarPorCod() {
-        // abrir conexão em services connection.php
+    public function selecionarPorCod()
+    {
         require '../services/connection.php';
         $sql = "SELECT * FROM `empresa` AS M
             INNER JOIN `endereco` AS E
@@ -90,8 +100,8 @@ class empresa extends endereco {
         return $result;
     }
 
-    public function selecionarPorEmailSenha() {
-        // abrir conexão em services connection.php
+    public function selecionarPorEmailSenha()
+    {
         require '../services/connection.php';
         $sql = "SELECT * FROM `empresa` AS M
             INNER JOIN `endereco` AS E
@@ -105,7 +115,6 @@ class empresa extends endereco {
         $stmt->execute();
 
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        // setar na classe
         $this->setCodEmpresa($result['codEmpresa']);
         $this->setRazaoSocial($result['razaoSocial']);
         $this->setTelefone($result['telefone']);
@@ -126,8 +135,8 @@ class empresa extends endereco {
         $this->setTipo($result['tipo']);
     }
 
-    public function alterarEmpresa() {
-        // abrir conexão em services connection.php
+    public function alterarEmpresa()
+    {
         require '../services/connection.php';
         $sql = "UPDATE empresa SET razaoSocial = :razaoSocial, telefone = :telefone, cnpj = :cnpj, ie = :ie, 
                                    codEndereco = :codEndereco, codLogin = :codLogin WHERE codEmpresa = :codEmpresa";
@@ -140,16 +149,14 @@ class empresa extends endereco {
         $stmt->bindValue(':codLogin', $this->codLogin);
         $stmt->bindValue(':codEmpresa', $this->codEmpresa);
         $stmt->execute();
-        // echo "Empresa atualizado com sucesso! Código: " . $this->getCodEmpresa() . "<br>";
     }
 
-    public function excluirEmpresa() {
-        // abrir conexão em services connection.php
+    public function excluirEmpresa()
+    {
         require '../services/connection.php';
         $sql = "DELETE FROM empresa WHERE codEmpresa = :codEmpresa";
         $stmt = $conn->prepare($sql);
         $stmt->bindValue(':codEmpresa', $this->codEmpresa);
         $stmt->execute();
-        // echo "Empresa excluído com sucesso! Código: " . $this->getCodEmpresa() . "<br>";
     }
 }

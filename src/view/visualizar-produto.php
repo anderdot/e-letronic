@@ -2,7 +2,7 @@
 include("../model/cliente.php");
 include("../model/empresa.php");
 include("../model/produto.php");
-// start a session
+
 session_start();
 $logado = unserialize($_SESSION['logado']);
 
@@ -22,28 +22,22 @@ $produto->selecionarPorCod();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Primary Meta Tags -->
     <title>e-Letronic</title>
     <meta name="title" content="Produto|e-Letronic">
     <meta name="description" content="Reciclagem de lixo eletrônico">
 
-    <!-- Styles -->
     <link rel="stylesheet" href="../../libs/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="../../assets/styles/style.css">
     <link rel="stylesheet" href="../../assets/styles/cadastro-cliente.css">
     <link rel="stylesheet" href="../../assets/styles/cadastro-produto.css">
-    <!-- bootstrap.bundle.js -->
 
-    <!-- Icons (icomoon.io) -->
     <link rel="stylesheet" href="../../assets/fonts/style.css">
 
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap">
 
-    <!-- Favicons -->
     <link rel="shortcut icon" href="../../assets/favicon.ico" type="image/x-icon">
     <link rel="icon" href="../../assets/favicon.ico" type="image/x-icon">
     <meta name="msapplication-TileColor" content="#69B99D">
@@ -52,7 +46,6 @@ $produto->selecionarPorCod();
 </head>
 
 <body>
-    <!-- Header -->
     <header id="header">
         <nav class="container">
             <a class="logo" href="home.php">e-<span>Letronic</span></a>
@@ -72,13 +65,12 @@ $produto->selecionarPorCod();
     </header>
 
     <main>
-        <!-- Home -->
         <section class="section" id="home">
             <div class="container grid">
                 <form class="mt-3">
                     <div class="form-group col-md-10">
                         <label for="inputTipo"><strong>Status</strong></label>
-                        <input type="text" class="form-control" id="inputtype5" value="<?php echo $produto->getNomeStatus() ?>"  disabled>
+                        <input type="text" class="form-control" id="inputtype5" value="<?php echo $produto->getNomeStatus() ?>" disabled>
                         <small id="passwordHelpBlock" class="form-text text-muted">
                             Atualizado em <?php echo $produto->getAlterado() ?>
                         </small>
@@ -139,7 +131,6 @@ $produto->selecionarPorCod();
                             <label class="custom-file-label" for="customFileLang">Selecionar arquivo</label>
                         </div>
                     </div>
-                    <!-- <button type="submit" class="btn btn-success button mt-3">Atualizar</button> -->
                 </form>
             </div>
         </section>
@@ -165,11 +156,8 @@ $produto->selecionarPorCod();
 
 <a href="#home " class="back-to-top "><i class="icon-arrow-up "></i></a>
 
-<!-- Swiper / Scroll -->
 <script src="../../libs/swiper-bundle.min.js "></script>
-<!-- Scroll Reveal -->
 <script src="../../libs/scrollreveal.min.js "></script>
-<!-- Scripts -->
 <script src="main.js "></script>
 
 </html>

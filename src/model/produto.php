@@ -1,5 +1,6 @@
 <?php
-class produto {
+class produto
+{
     private $codProduto;
     private $tipo;
     private $modelo;
@@ -12,95 +13,118 @@ class produto {
     private $codStatus;
     private $nomeStatus;
 
-    public function getCodProduto() {
+    public function getCodProduto()
+    {
         return $this->codProduto;
     }
 
-    public function setCodProduto($codProduto) {
+    public function setCodProduto($codProduto)
+    {
         $this->codProduto = $codProduto;
     }
 
-    public function getTipo() {
+    public function getTipo()
+    {
         return $this->tipo;
     }
 
-    public function setTipo($tipo) {
+    public function setTipo($tipo)
+    {
         $this->tipo = $tipo;
     }
 
-    public function getModelo() {
+    public function getModelo()
+    {
         return $this->modelo;
     }
 
-    public function setModelo($modelo) {
+    public function setModelo($modelo)
+    {
         $this->modelo = $modelo;
     }
 
-    public function getImage() {
+    public function getImage()
+    {
         return $this->image;
     }
 
-    public function setImage($image) {
+    public function setImage($image)
+    {
         $this->image = $image;
     }
 
-    public function getFuncionando() {
+    public function getFuncionando()
+    {
         return $this->funcionando;
     }
 
-    public function setFuncionando($funcionando) {
+    public function setFuncionando($funcionando)
+    {
         $this->funcionando = $funcionando;
     }
 
-    public function getTempoUso() {
+    public function getTempoUso()
+    {
         return $this->tempoUso;
     }
 
-    public function setTempoUso($tempoUso) {
+    public function setTempoUso($tempoUso)
+    {
         $this->tempoUso = $tempoUso;
     }
 
-    public function getEspecificacoes() {
+    public function getEspecificacoes()
+    {
         return $this->especificacoes;
     }
 
-    public function setEspecificacoes($especificacoes) {
+    public function setEspecificacoes($especificacoes)
+    {
         $this->especificacoes = $especificacoes;
     }
 
-    public function getCodStatus() {
+    public function getCodStatus()
+    {
         return $this->codStatus;
     }
 
-    public function setCodStatus($codStatus) {
+    public function setCodStatus($codStatus)
+    {
         $this->codStatus = $codStatus;
     }
 
-    public function getCashback() {
+    public function getCashback()
+    {
         return $this->cashback;
     }
 
-    public function setCashback($cashback) {
+    public function setCashback($cashback)
+    {
         $this->cashback = $cashback;
     }
 
-    public function getAlterado() {
+    public function getAlterado()
+    {
         return $this->alterado;
     }
 
-    public function setAlterado($alterado) {
+    public function setAlterado($alterado)
+    {
         $this->alterado = $alterado;
     }
-    
-    public function setNomeStatus($nomeStatus) {
+
+    public function setNomeStatus($nomeStatus)
+    {
         $this->nomeStatus = $nomeStatus;
     }
 
-    public function getNomeStatus() {
+    public function getNomeStatus()
+    {
         return $this->nomeStatus;
     }
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->codProduto = 0;
         $this->tipo = "";
         $this->modelo = "";
@@ -112,8 +136,8 @@ class produto {
         $this->nomeStatus = "Envio pendente";
     }
 
-    public function cadastrarProduto() {
-        // abrir conexão em services connection.php
+    public function cadastrarProduto()
+    {
         require '../services/connection.php';
         $sql = "INSERT INTO produto (tipo, modelo, imagem, funcionando, tempoUso, especificacoes, codStatus) 
                              VALUES (:tipo, :modelo, :imagem, :funcionando, :tempoUso, :especificacoes, :codStatus)";
@@ -127,11 +151,10 @@ class produto {
         $stmt->bindValue(':codStatus', $this->codStatus);
         $stmt->execute();
         $this->setCodProduto($conn->lastInsertId());
-        // echo '<script>alert("Produto cadastrado com sucesso!");</script>';
     }
 
-    public function selecionarPorCod() {
-        // abrir conexão em services connection.php
+    public function selecionarPorCod()
+    {
         require '../services/connection.php';
         $sql = "SELECT * FROM produto AS p JOIN produtoStatus AS s ON p.codStatus = s.codStatus WHERE codProduto = :codProduto";
         $stmt = $conn->prepare($sql);
@@ -151,8 +174,8 @@ class produto {
         $this->setNomeStatus($result['nomeStatus']);
     }
 
-    public function selecionarPorCodCliente($codCliente) {
-        // abrir conexão em services connection.php
+    public function selecionarPorCodCliente($codCliente)
+    {
         require '../services/connection.php';
         $sql = "SELECT * FROM produto AS p JOIN clienteProduto AS cp ON p.codProduto = cp.codProduto WHERE cp.codCliente = :codCliente";
         $stmt = $conn->prepare($sql);
@@ -162,8 +185,8 @@ class produto {
         return $result;
     }
 
-    public function selecionarPorCodEmpresa($codEmpresa) {
-        // abrir conexão em services connection.php
+    public function selecionarPorCodEmpresa($codEmpresa)
+    {
         require '../services/connection.php';
         $sql = "SELECT * FROM produto AS p JOIN empresaProduto AS ep ON p.codProduto = ep.codProduto WHERE ep.codEmpresa = :codEmpresa";
         $stmt = $conn->prepare($sql);
@@ -173,9 +196,8 @@ class produto {
         return $result;
     }
 
-    // selecionar o produto com a maior data
-    public function selecionarPorUltimaAtualizacao($codCliente) {
-        // abrir conexão em services connection.php
+    public function selecionarPorUltimaAtualizacao($codCliente)
+    {
         require '../services/connection.php';
         $sql = "SELECT MAX(alterado) AS alterado, nomeStatus, cashback FROM produto AS p INNER JOIN produtoStatus AS s ON p.codStatus = s.codStatus 
                 JOIN clienteProduto AS c ON p.codProduto = c.codProduto WHERE c.codCliente = :codCliente GROUP BY nomeStatus, cashback";
@@ -186,8 +208,8 @@ class produto {
         return $result;
     }
 
-    public function atualizarProduto() {
-        // abrir conexão em services connection.php
+    public function atualizarProduto()
+    {
         require '../services/connection.php';
         $sql = "UPDATE produto SET tipo = :tipo, modelo = :modelo, imagem = :imagem, funcionando = :funcionando, tempoUso = :tempoUso, especificacoes = :especificacoes, codStatus = :codStatus WHERE codProduto = :codProduto";
         $stmt = $conn->prepare($sql);
@@ -200,11 +222,10 @@ class produto {
         $stmt->bindValue(':codStatus', $this->codStatus);
         $stmt->bindValue(':codProduto', $this->codProduto);
         $stmt->execute();
-        // echo '<script>alert("Produto atualizado com sucesso!");</script>';
     }
 
-    public function excluirProduto() {
-        // abrir conexão em services connection.php
+    public function excluirProduto()
+    {
         require '../services/connection.php';
         $sql = "DELETE FROM clienteProduto WHERE codProduto = :codProduto";
         $stmt = $conn->prepare($sql);
@@ -220,26 +241,23 @@ class produto {
         $stmt = $conn->prepare($sql);
         $stmt->bindValue(':codProduto', $this->codProduto);
         $stmt->execute();
-        // echo '<script>alert("Produto deletado com sucesso!");</script>';
     }
 
-    public function excluirProdutoPorCodCliente($codCliente) {
-        // abrir conexão em services connection.php
+    public function excluirProdutoPorCodCliente($codCliente)
+    {
         require '../services/connection.php';
         $sql = "DELETE FROM clienteProduto WHERE codCliente = :codCliente";
         $stmt = $conn->prepare($sql);
         $stmt->bindValue(':codProduto', $codCliente);
         $stmt->execute();
-        // echo '<script>alert("Produto deletado com sucesso!");</script>';
     }
 
-    public function excluirProdutoPorCodEmpresa($codEmpresa) {
-        // abrir conexão em services connection.php
+    public function excluirProdutoPorCodEmpresa($codEmpresa)
+    {
         require '../services/connection.php';
         $sql = "DELETE FROM empresaProduto WHERE codEmpresa = :codEmpresa";
         $stmt = $conn->prepare($sql);
         $stmt->bindValue(':codEmpresa', $codEmpresa);
         $stmt->execute();
-        // echo '<script>alert("Produto deletado com sucesso!");</script>';
     }
 }

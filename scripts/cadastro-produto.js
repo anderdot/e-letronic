@@ -1,5 +1,3 @@
-// TORNA DADOS OBRIGATÓRIOS
-
 function valida_dados(nomeform) {
     if (nomeform.nome.value == "") {
         alert("Por favor digite o nome.");

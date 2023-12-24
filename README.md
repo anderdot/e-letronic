@@ -54,4 +54,5 @@
 - [X] Criptografar a senha em MD5
 - [X] Configurar variáveis de sessão
 
-
+## Nota final
+- 10 
